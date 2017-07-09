@@ -1,0 +1,9 @@
+package avaj_launcher;
+
+public class Parser {
+	
+	public void verifFirstLine(String sLine) throws NumberFormatException {
+		
+		Integer cycle = Integer.valueOf(sLine);
+	}
+}

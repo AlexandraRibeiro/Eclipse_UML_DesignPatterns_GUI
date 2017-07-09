@@ -1,0 +1,13 @@
+package avaj_launcher;
+
+public class Parser {
+	
+	public void verifFirstLine(String sLine) {
+		try {
+			Integer cycle = Integer.valueOf(sLine);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

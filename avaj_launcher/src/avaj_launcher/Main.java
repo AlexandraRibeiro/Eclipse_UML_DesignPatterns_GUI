@@ -12,11 +12,15 @@ public class Main {
 		if (args.length == 1) {
 			String sCurrentLine;
 			buff = new BufferedReader(new FileReader(args[0]));
+			Parser p = new Parser();
+			
 			while ((sCurrentLine = buff.readLine()) != null) {
 				
 				System.out.println(sCurrentLine); //debug
 				
-				// lexer/parser
+				// Parser.java ->regex?
+				System.out.println(p.verifFirstLine(sCurrentLine));
+				
 				
 			}
 		}

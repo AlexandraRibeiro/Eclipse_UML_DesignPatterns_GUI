@@ -1,0 +1,14 @@
+package avaj_launcher;
+
+public class Parser {
+	
+	public void verifFirstLine(String sLine) {
+		try {
+			Integer cycle = Integer.valueOf(sLine);
+		}
+		catch (MyExceptions e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+}

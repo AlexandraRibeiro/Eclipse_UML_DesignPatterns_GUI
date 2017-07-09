@@ -1,0 +1,17 @@
+package avaj_launcher;
+
+import org.omg.CORBA.SystemException;
+
+public class Parser {
+	
+	public Integer verifFirstLine(String sLine) {
+		try {
+			Integer cycle = Integer.valueOf(sLine);
+			return cycle;
+		}
+		catch (MyExceptions e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}
