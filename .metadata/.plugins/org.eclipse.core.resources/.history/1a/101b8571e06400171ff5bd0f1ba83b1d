@@ -1,0 +1,22 @@
+package avaj_launcher;
+
+public class Main {
+
+	public static void main(String[] args) {
+		BufferedReader buff = null;
+		
+		if (args.length == 1) {
+			String sCurrentLine;
+			buff = new BufferedReader(new FileReader(args[0]));
+			while ((sCurrentLine = buff.readLine()) != null) {
+				
+				System.out.println(sCurrentLine);
+			}
+		}
+		else
+			System.out.println("pas d'argument");
+
+
+	}
+
+}
