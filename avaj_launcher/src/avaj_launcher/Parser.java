@@ -2,8 +2,8 @@ package avaj_launcher;
 
 public class Parser {
 	
-	public Integer verifFirstLine(String sLine) {
+	public String verifFirstLine(String sLine) {
 			Integer cycle = Integer.valueOf(sLine);
-			return cycle;
+			return Integer.toString(cycle);
 	}
 }

@@ -9,23 +9,30 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader buff = null;
 		
-		if (args.length == 1) {
-			String sCurrentLine;
-			buff = new BufferedReader(new FileReader(args[0]));
-			Parser p = new Parser();
-			
-			while ((sCurrentLine = buff.readLine()) != null) {
+		try {
+			if (args.length == 1) {
+				String sCurrentLine;
+				buff = new BufferedReader(new FileReader(args[0]));
+				Parser p = new Parser();
 				
-				System.out.println(sCurrentLine); //debug
-				
-				// Parser.java ->regex?
-				System.out.println(p.verifFirstLine(sCurrentLine));
-				
-				
+				while ((sCurrentLine = buff.readLine()) != null) {
+					System.out.println(sCurrentLine); //debug
+					
+					// Parser.java ->regex?
+					System.out.println(p.verifFirstLine(sCurrentLine));	
+				}
 			}
+			else
+				throw new MyExceptions("Error: args != 1");
 		}
-		else
-			System.out.println("pas d'argument");
+		catch (MyExceptions e) {
+			System.out.println(e.getMessage());
+			System.out.println("\n=> Leaving program now!");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
