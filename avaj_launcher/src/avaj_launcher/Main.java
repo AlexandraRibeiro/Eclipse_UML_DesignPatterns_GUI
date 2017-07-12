@@ -22,8 +22,9 @@ public class Main {
 					System.out.println(p.verifFirstLine(sCurrentLine));	
 				}
 			}
-			else
+			else {
 				throw new MyExceptions("Error: args != 1");
+			}
 		}
 		catch (MyExceptions e) {
 			System.out.println(e.getMessage());
