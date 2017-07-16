@@ -2,8 +2,18 @@ package avaj_launcher;
 
 public class Parser {
 	
-	public String verifFirstLine(String sLine) {
-			Integer cycle = Integer.valueOf(sLine);
-			return Integer.toString(cycle);
+	public int verifFirstLine(String sLine) throws MyExceptions {
+		try {
+			int cycle = Integer.parseInt(sLine);
+			return cycle;
+		}
+		catch (Exception e) {
+			throw new MyExceptions("\n=> Error : first line not an integer");
+		}
 	}
+	
+	public void verifLines(String sLine) {
+		
+	}
+	
 }
