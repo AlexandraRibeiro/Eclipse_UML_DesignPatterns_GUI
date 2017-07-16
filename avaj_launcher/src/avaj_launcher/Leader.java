@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Lead {
-	
-//	public Lead() {} // besoin d'un constructeur ?
+public class Leader {
 	
 	public int nb_cycle;
 	public int nb_aircraft;
@@ -20,14 +18,12 @@ public class Lead {
 			Parser p = new Parser();
 			nb_aircraft = -1;
 
-			while ((sCurrentLine = buff.readLine()) != null) 
-			{
+			while ((sCurrentLine = buff.readLine()) != null) {
 				System.out.println(sCurrentLine); //debug
-				
-				// Parser.java ->regex?
+
 				if (nb_aircraft == -1) {
 					nb_cycle = p.verifFirstLine(sCurrentLine);
-	System.out.println(nb_cycle); // debug
+					System.out.println(nb_cycle); // debug
 					if (nb_cycle == 0)
 						throw new MyExceptions("\n=> Error : not enough cycle, cycle = 0");
 					else if (nb_cycle > 255)
@@ -36,12 +32,12 @@ public class Lead {
 						throw new MyExceptions("\n=> Error : error value cycle, cycle < 0");
 				}
 				else
-					p.verifLines(sCurrentLine);
+					p.verifLines(sCurrentLine); //regex lines
 				nb_aircraft++;
 			}
 		}
 		else {
-			throw new MyExceptions("\n=> Error : args != 1");
+			throw new MyExceptions("\n=> Error : arguments, args != 1");
 		}
 		
 	}
