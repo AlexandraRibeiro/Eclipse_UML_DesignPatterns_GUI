@@ -27,22 +27,13 @@ public class Leader {
 					nb_cycle = p.verifFirstLine(sCurrentLine);
 					verifCycle();
 				}
-				else {
-					if (p.regex(sCurrentLine) == false)
-						throw new MyExceptions("\n=> Error (regex) : line " + (nb_aircraft + 2)); //error regex
-					else {
-						System.out.println("ok regex"); // debug
-						sArrayLine = sCurrentLine.split(" ");
-						readType();
-					}
-				}
+				else
+					verifRegex(sCurrentLine);
 				nb_aircraft++;
 			}
 		}
-		else {
+		else
 			throw new MyExceptions("\n=> Error : arguments, args != 1");
-		}
-
 	}
 	
 	private void verifCycle() throws MyExceptions {
@@ -52,6 +43,16 @@ public class Leader {
 			throw new MyExceptions("\n=> Error : too much cycles, cycle > 255");
 		else if (nb_cycle < 0)
 			throw new MyExceptions("\n=> Error : the value of the cycles is negative");
+	}
+	
+	private void verifRegex(String sCurrentLine) throws MyExceptions {
+		if (p.regex(sCurrentLine) == false)
+			throw new MyExceptions("\n=> Error (regex) : line " + (nb_aircraft + 2)); //error regex
+		else {
+			System.out.println("-> ok regex"); // debug
+			sArrayLine = sCurrentLine.split(" ");
+			readType();
+		}
 	}
 	
 	private void readType() throws MyExceptions {
@@ -64,12 +65,12 @@ public class Leader {
 	}
 	
 	private void readID() throws MyExceptions {
-		System.out.println("ok Type"); //debug
+		System.out.println("-> ok Type"); //debug
 		if (p.parserVerifID(sArrayLine[1], sArrayLine[0]) == false) {
 			throw new MyExceptions("\n=> Error (parser) : '" + sArrayLine[1] + "' wrong ID, line " + (nb_aircraft + 2)); //error ID
 		}
 		else {
-			System.out.println("ok ID"); //debug
+			System.out.println("-> ok ID"); //debug
 		}
 	}
 

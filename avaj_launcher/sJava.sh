@@ -1,1 +1,1 @@
-javac -d bin -cp avaj_launcher src/avaj_launcher/*.java
+javac -d . -cp avaj_launcher src/avaj_launcher/*.java
