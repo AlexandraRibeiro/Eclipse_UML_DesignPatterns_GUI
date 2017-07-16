@@ -16,13 +16,18 @@ public class Leader {
 
 		if (args.length == 1) {
 			String sCurrentLine;
-			buff = new BufferedReader(new FileReader(args[0]));
+			try {
+				buff = new BufferedReader(new FileReader(args[0]));
+			}
+			catch (Exception e) {
+				throw new MyExceptions("\n=> Error : '" + args[0] + "' no such file or directory");
+			}
+			
 			p = new Parser();
 			nb_aircraft = -1;
 
 			while ((sCurrentLine = buff.readLine()) != null) {
 				System.out.println(sCurrentLine); //debug
-
 				if (nb_aircraft == -1) {
 					nb_cycle = p.verifFirstLine(sCurrentLine);
 					verifCycle();
@@ -31,6 +36,9 @@ public class Leader {
 					verifRegex(sCurrentLine);
 				nb_aircraft++;
 			}
+			
+			if (nb_aircraft == -1)
+				throw new MyExceptions("\n=> Error : empty file");
 		}
 		else
 			throw new MyExceptions("\n=> Error : arguments, args != 1");
@@ -59,9 +67,8 @@ public class Leader {
 		if (p.parserVerifTypes(sArrayLine[0]) == false) {
 			throw new MyExceptions("\n=> Error (parser) : '" + sArrayLine[0] + "' unknown type, line " + (nb_aircraft + 2)); //error Type
 		}
-		else {
+		else
 			readID();
-		}
 	}
 	
 	private void readID() throws MyExceptions {

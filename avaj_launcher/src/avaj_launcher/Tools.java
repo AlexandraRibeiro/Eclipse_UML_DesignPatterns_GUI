@@ -1,5 +1,7 @@
 package avaj_launcher;
 
+//static == global  / final == const
+
 public class Tools {
 	
 	public static final boolean verbose = true;
@@ -13,6 +15,5 @@ public class Tools {
     public static final String PURPLE = "\u001B[35;1m";
     public static final String CYAN = "\u001B[36;1m";
     public static final String WHITE = "\u001B[37;40;1m";
-		
 	
 }
