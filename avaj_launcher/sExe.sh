@@ -2,7 +2,7 @@
 # @Date:   2017-07-17T23:38:12+02:00
 # @Email:  aribeiro@student.42.fr
 # @Last modified by:   aribeiro
-# @Last modified time: 2017-07-17T23:55:16+02:00
+# @Last modified time: 2017-07-18T00:37:52+02:00
 
 echo "********* Compilation *********"
 javac -d . -cp avaj_launcher src/avaj_launcher/*.java
@@ -21,10 +21,11 @@ echo "java avaj_launcher.Main scenario-cyclealpha.txt //cycle == A"
 java avaj_launcher.Main scenario-cyclealpha.txt
 echo
 echo "____________________________________________________________________________"
-echo "java avaj_launcher.Main scenario-cycle256.txt // cycle max"
+echo "java avaj_launcher.Main scenario-cycle256.txt //cycle max"
 java avaj_launcher.Main scenario-cycle256.txt
 echo
-echo "java avaj_launcher.Main scenario-cycleneg.txt // cylce negatif"
+echo "____________________________________________________________________________"
+echo "java avaj_launcher.Main scenario-cycleneg.txt //cylce negatif"
 java avaj_launcher.Main scenario-cycleneg.txt
 echo
 echo "____________________________________________________________________________"
@@ -36,7 +37,7 @@ echo "java avaj_launcher.Main scenario-errorID.txt //error ID"
 java avaj_launcher.Main scenario-errorID.txt
 echo
 echo "____________________________________________________________________________"
-echo "java avaj_launcher.Main scenario-errorregex.txt // error regex"
+echo "java avaj_launcher.Main scenario-errorregex.txt //error regex"
 java avaj_launcher.Main scenario-errorregex.txt
 echo
 echo "____________________________________________________________________________"
@@ -48,5 +49,5 @@ echo "java avaj_launcher.Main scenario-nocycle.txt //pas de lignes avec le cycle
 java avaj_launcher.Main scenario-nocycle.txt
 echo
 echo "____________________________________________________________________________"
-echo "java avaj_launcher.Main scenario-nocycle.tx //pas de cycle"
+echo "java avaj_launcher.Main scenario-nocycle.tx //fichier inconnu"
 java avaj_launcher.Main scenario-nocycle.tx
