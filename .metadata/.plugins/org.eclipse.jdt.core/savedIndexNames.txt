@@ -15,5 +15,4 @@ INDEX VERSION 1.129+/Users/aribeiro/avaj_eclipse/.metadata/.plugins/org.eclipse.
 4232048337.index
 782179996.index
 3059193231.index
-3063098300.index
 449899765.index
