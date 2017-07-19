@@ -67,18 +67,36 @@ public class Leader {
 		if (p.parserVerifTypes(sArrayLine[0]) == false) {
 			throw new MyExceptions("\n=> Error (parser) : '" + sArrayLine[0] + "' unknown type, line " + (nb_aircraft + 2)); //error Type
 		}
-		else
-			readID();
+		else {
+			System.out.println("-> ok Type"); //debug
+			readName();
+		}
 	}
 	
-	private void readID() throws MyExceptions {
-		System.out.println("-> ok Type"); //debug
-		if (p.parserVerifID(sArrayLine[1], sArrayLine[0]) == false) {
-			throw new MyExceptions("\n=> Error (parser) : '" + sArrayLine[1] + "' wrong ID, line " + (nb_aircraft + 2)); //error ID
+	
+	private void readName() throws MyExceptions {
+		if (p.parserVerifName(sArrayLine[1], sArrayLine[0]) == false) {
+			throw new MyExceptions("\n=> Error (parser) : '" + sArrayLine[1] + "' wrong Name, line " + (nb_aircraft + 2)); //error ID
 		}
 		else {
-			System.out.println("-> ok ID"); //debug
+			System.out.println("-> ok Name"); //debug
+			readHeight();
 		}
 	}
+	
+	private void readHeight() throws MyExceptions {
+		if (p.parserVerifHeight(sArrayLine[1], sArrayLine[4]) == false) {
+			sArrayLine[4] = "100";
+			System.out.println("-> ok Height = 100"); //debug
+		}
+		else if (Integer.parseInt(sArrayLine[4]) == 0) {
+			nb_aircraft --;
+			System.out.println("-> ok this aircraft landed, no need to register"); //debug
+		}
+		else
+			System.out.println("-> ok Height"); //debug
+	}
 
+	
+	
 }

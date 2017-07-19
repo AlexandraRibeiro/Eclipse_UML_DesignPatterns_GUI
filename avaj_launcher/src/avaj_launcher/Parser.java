@@ -3,6 +3,7 @@ package avaj_launcher;
 public class Parser {
 	
 	public static final String[] sAircrafts = {"Baloon", "Helicopter", "JetPlane" };
+
 	
 	public int verifFirstLine(String sLine) throws MyExceptions {
 		try {
@@ -30,9 +31,22 @@ public class Parser {
 		return false;
 	}
 	
-	public boolean parserVerifID(String sID, String sTypes) {
-		if (sID.charAt(0) == sTypes.charAt(0))
-			return true;
+	public boolean parserVerifName(String sID, String sTypes) {
+		if (sID.charAt(0) == sTypes.charAt(0)) {
+			if (Tools.arrID.isEmpty() == true || Tools.arrID.contains(sID) == false) {
+				Tools.arrID.add(sID);
+				return true;
+			}
+		}
 		return false;
+	}
+	
+	public boolean parserVerifHeight(String sID, String sHeight) {
+		int height = Integer.parseInt(sHeight);
+		if (height > 100)
+			return false;
+		else if (height == 0) // this aircaft landed, no need to register
+			Tools.arrID.remove(sID);
+		return true;
 	}
 }
