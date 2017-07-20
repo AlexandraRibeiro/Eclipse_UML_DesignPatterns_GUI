@@ -35,10 +35,17 @@ public class Leader {
 				else
 					verifRegex(sCurrentLine);
 				nb_aircraft++;
-			}
-			
+			}		
+	
 			if (nb_aircraft == -1)
 				throw new MyExceptions("\n=> Error : empty file");
+			else {
+				int i = 0;
+				WeatherTower wt = new WeatherTower();
+				while (i < nb_aircraft) {
+					
+				}
+			}
 		}
 		else
 			throw new MyExceptions("\n=> Error : arguments, args != 1");
