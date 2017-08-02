@@ -17,7 +17,11 @@ public class Helicopter extends Aircraft implements Flyable {
 
 	@Override
 	public void registerTower(WeatherTower weatherTower) {
-		// TODO Auto-generated method stub
+		String logHelicopter = "Tower says: " + "Helicopter#" + name + "(" + Long.toString(id) + ") registered to weather tower.";
+		this.weatherTower = weatherTower;
+		this.weatherTower.register(this); //Tower.java
+		
+		Tools.arrLogs.add(logHelicopter); //debug > put in file
 
 	}
 

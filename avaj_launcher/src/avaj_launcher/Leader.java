@@ -3,17 +3,19 @@ package avaj_launcher;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Leader {
 	
 	public int nb_cycle;
 	public int nb_aircraft;
 	private String[] sArrayLine;
+	private ArrayList<String> arrAllLines = new ArrayList<String>();;
 	private Parser p;
+	public boolean landed = false;
 	BufferedReader buff = null;
 	
 	public void reader(String[] args) throws IOException, MyExceptions {
-
 		if (args.length == 1) {
 			String sCurrentLine;
 			try {
@@ -22,12 +24,15 @@ public class Leader {
 			catch (Exception e) {
 				throw new MyExceptions("\n=> Error : '" + args[0] + "' no such file or directory");
 			}
-			
+
+			// Parser ______________________________________________________________________________
 			p = new Parser();
 			nb_aircraft = -1;
 
 			while ((sCurrentLine = buff.readLine()) != null) {
+				landed = false;
 				System.out.println(sCurrentLine); //debug
+				
 				if (nb_aircraft == -1) {
 					nb_cycle = p.verifFirstLine(sCurrentLine);
 					verifCycle();
@@ -35,22 +40,48 @@ public class Leader {
 				else
 					verifRegex(sCurrentLine);
 				nb_aircraft++;
-			}		
+				if (landed == true)
+					arrAllLines.remove(sCurrentLine);
+			}
 	
 			if (nb_aircraft == -1)
 				throw new MyExceptions("\n=> Error : empty file");
 			else {
 				int i = 0;
-				WeatherTower wt = new WeatherTower();
-				while (i < nb_aircraft) {
-					
+				while (i < arrAllLines.size()) {
+					System.out.println(arrAllLines.get(i));
+					i++;
 				}
+				i = 0;
+				WeatherTower wt = new WeatherTower();
+				
+				// Create Aircraft & register tower _______________________________________________
+				while (i < nb_aircraft) {
+					sArrayLine = arrAllLines.get(i).split(" ");
+					Flyable flyable = AircraftFactory.newAircraft(sArrayLine[0],
+																sArrayLine[1],
+																Integer.parseInt(sArrayLine[2]),
+																Integer.parseInt(sArrayLine[3]),
+																Integer.parseInt(sArrayLine[4]));
+					flyable.registerTower(wt);
+					i++;
+				}
+				
+				i = 0;
+				while (i < Tools.arrLogs.size()) {
+					System.out.println(Tools.arrLogs.get(i));
+					i++;
+				}
+				
+				// Change weather with cycles
 			}
 		}
 		else
 			throw new MyExceptions("\n=> Error : arguments, args != 1");
 	}
 	
+	
+	/* FOR PARSER ********************************************************************************/
 	private void verifCycle() throws MyExceptions {
 		if (nb_cycle == 0)
 			throw new MyExceptions("\n=> Error : not enough cycles, cycle = 0");
@@ -65,6 +96,7 @@ public class Leader {
 			throw new MyExceptions("\n=> Error (regex) : line " + (nb_aircraft + 2)); //error regex
 		else {
 			System.out.println("-> ok regex"); // debug
+			arrAllLines.add(sCurrentLine); //stock all Lines for params new Flyable
 			sArrayLine = sCurrentLine.split(" ");
 			readType();
 		}
@@ -79,7 +111,6 @@ public class Leader {
 			readName();
 		}
 	}
-	
 	
 	private void readName() throws MyExceptions {
 		if (p.parserVerifName(sArrayLine[1], sArrayLine[0]) == false) {
@@ -99,11 +130,11 @@ public class Leader {
 		else if (Integer.parseInt(sArrayLine[4]) == 0) {
 			nb_aircraft --;
 			System.out.println("-> ok this aircraft landed, no need to register"); //debug
+			landed = true;
 		}
 		else
 			System.out.println("-> ok Height"); //debug
 	}
-
-	
+	/* *******************************************************************************************/
 	
 }

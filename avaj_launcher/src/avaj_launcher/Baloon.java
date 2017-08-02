@@ -17,8 +17,11 @@ public class Baloon extends Aircraft implements Flyable {
 
 	@Override
 	public void registerTower(WeatherTower weatherTower) {
-		// TODO Auto-generated method stub
-
+		String logBaloon = "Tower says: " + "Baloon#" + name + "(" + Long.toString(id) + ") registered to weather tower.";
+		this.weatherTower = weatherTower;
+		this.weatherTower.register(this); //Tower.java
+		
+		Tools.arrLogs.add(logBaloon); //debug > put in file
 	}
 
 }

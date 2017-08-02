@@ -2,13 +2,16 @@ package avaj_launcher;
 
 import java.util.ArrayList;
 
-//static == global  / final == const
+//static == global
+//final == const
 
 public class Tools {
 	
 	public static final boolean verbose = true;
 	
 	public static ArrayList<String> arrID = new ArrayList<String>();
+	
+	public static ArrayList<String> arrLogs = new ArrayList<String>();
 	
 	public static final String RESET = "\u001B[0m";
     public static final String BLACK = "\u001B[30;1m";

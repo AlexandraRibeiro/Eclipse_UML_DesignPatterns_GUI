@@ -16,7 +16,11 @@ public class JetPlane extends Aircraft implements Flyable {
 
 	@Override
 	public void registerTower(WeatherTower weatherTower) {
-		// TODO Auto-generated method stub
+		String logJet = "Tower says: " + "JetPlane#" + name + "(" + Long.toString(id) + ") registered to weather tower.";
+		this.weatherTower = weatherTower;
+		this.weatherTower.register(this); //Tower.java
+		
+		Tools.arrLogs.add(logJet); //debug > put in file
 
 	}
 
