@@ -14,7 +14,6 @@ public abstract class Aircraft {
 		this.id = nextId();
 		this.name = name;
 		this.coordinates = coordinates;
-		//System.out.println("Aircraft created : " + Types.getNameFromId(name));
 	}
 	
 	private long nextId(){

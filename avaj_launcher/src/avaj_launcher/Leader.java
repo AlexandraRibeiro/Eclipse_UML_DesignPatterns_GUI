@@ -3,6 +3,9 @@ package avaj_launcher;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Leader {
@@ -46,6 +49,8 @@ public class Leader {
 	
 			if (nb_aircraft == -1)
 				throw new MyExceptions("\n=> Error : empty file");
+			else if (nb_aircraft == 0)
+				throw new MyExceptions("\n=> All aircrafts landed");
 			else {
 				int i = 0;
 				while (i < arrAllLines.size()) {
@@ -67,13 +72,17 @@ public class Leader {
 					i++;
 				}
 				
+				// Change weather with cycles ______________________________________________________
 				i = 0;
-				while (i < Tools.arrLogs.size()) {
-					System.out.println(Tools.arrLogs.get(i));
+				while (i < nb_cycle)
+				{
+					wt.changeWeather();
 					i++;
 				}
 				
-				// Change weather with cycles
+				// Generate a file simulation.txt___________________________________________________
+				Path sim = Paths.get("simulation.txt");
+				Files.write(sim, Tools.arrLogs);
 			}
 		}
 		else

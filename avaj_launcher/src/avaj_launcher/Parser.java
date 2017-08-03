@@ -2,7 +2,7 @@ package avaj_launcher;
 
 public class Parser {
 	
-	public static final String[] sAircrafts = {"Baloon", "Helicopter", "JetPlane" };
+//	public static final String[] sAircrafts = {"Baloon", "Helicopter", "JetPlane" };
 
 	
 	public int verifFirstLine(String sLine) throws MyExceptions {
@@ -22,9 +22,9 @@ public class Parser {
 	
 	public boolean parserVerifTypes(String sTypes) {
 		int i = 0;
-		while (i < sAircrafts.length)
+		while (i < Tools.arrAircrafts.length)
 		{
-			if (	sTypes.equals(sAircrafts[i]) == true)
+			if (	sTypes.equals(Tools.arrAircrafts[i]) == true)
 				return true;
 			i++;
 		}

@@ -1,0 +1,22 @@
+package avaj_launcher;
+
+public class WeatherProvider {
+
+	private static WeatherProvider weatherProvider;
+	private static String[] weather;
+	
+	//Singleton > private constructor
+	private WeatherProvider() {}
+	
+	//static == global
+	public static WeatherProvider getProvider() {
+		if (weatherProvider == null) {
+			weatherProvider = new WeatherProvider();
+			weather = Tools.arrWeathers;
+		}
+	}
+	
+	public String getCurrentWeather(Coordinates coordinates) {
+		
+	}
+}
