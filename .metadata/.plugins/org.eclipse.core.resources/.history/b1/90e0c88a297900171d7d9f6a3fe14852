@@ -2,21 +2,20 @@ package avaj_launcher;
 
 import java.util.ArrayList;
 
-/*	static == global
-* 	final == const
-*/
+//static == global
+//final == const
 
 public class Tools {
 	
-	public static boolean verbose = true;
+	public static final boolean verbose = true;
 	
 	public static ArrayList<String> arrID = new ArrayList<String>();
 	
 	public static ArrayList<String> arrLogs = new ArrayList<String>(); // > simulation.txt
 		
-    public static final String[] arrWeathers = {"SUN", "RAIN", "FOG", "SNOW", "WIND"}; //bonus Wind
+    public static String[] arrWeathers = {"SUN", "RAIN", "FOG", "SNOW", "WIND"}; //bonus Wind
     
-    public static final String[] arrAircrafts = {"JetPlane", "Helicopter", "Baloon", "Drone"}; //bonus Drone
+    public static String[] arrAircrafts = {"JetPlane", "Helicopter", "Baloon", "Drone"}; //bonus Drone
 	
     private static int[][][] arrAircraftMove = 	{ 	/*		SUN				RAIN				FOG				SNOW				WIND 		*/
 				/* JetPlane */						{	{0, 10, 2},		{0, 5, 0},		{0, 1, 0},		{0, 0, -7},		{0, 3, -2}		},
@@ -31,34 +30,16 @@ public class Tools {
     												/* {long min, long max, lat min, lat max} */
     											};
     
-    
-    									/* 	   (longitude)	999	_____________________________ 999
-    									 * 						|		|		|			|
-    									 *						|		|		|			|
-    									 *						|		|		|	SNOW		|
-    									 *						|  RAIN	|		|			|					height >= 800  // always SUN
-    									 *						|		|  WIND	|			|
-    									 *						|		|		|___________	| 300
-    									 *					200	|_______	|		|			|
-    									 *						|  FOG	|		|	 SUN		|
-    									 * 			  		  	|_______	|_______	|___________	| 
-    									 * 			   		   0			250		500		   999    (latitude)
-    									 */
-    
-    
-    public static int whatWeather(int height, int longitude, int latitude) {
+    public static String whatWeather(int height, int longitude, int latitude) {
     		if (height >= 800)
-    			return 0;
+    			return ("SUN");
     		int i = 0;
     		int j = 0;
-    		while (i < arrWeatherMap.length)
+    		while (i < arrAircraftMove.length)
     		{
-    			if (longitude >= arrWeatherMap[i][j] && longitude <= arrWeatherMap[i][j+1] 
-    					&& latitude >= arrWeatherMap[i][j+2] && latitude <= arrWeatherMap[i][j+3])
-    				return i;
+    			
     			i++;
     		}
-    		return 0;
     }
     
 	public static final String RESET = "\u001B[0m";

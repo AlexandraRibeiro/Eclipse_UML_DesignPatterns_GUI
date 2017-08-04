@@ -22,6 +22,6 @@ public class WeatherProvider {
 		int latitude = coordinates.getLatitude();
 		int height = coordinates.getHeight();
 		
-		return (weather[Tools.whatWeather(height, longitude, latitude)]);
+		return (Tools.whatWeather(height, longitude, latitude));
 	}
 }
