@@ -1,6 +1,7 @@
 package avaj_launcher;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /*	static == global
 * 	final == const
@@ -18,33 +19,78 @@ public class Tools {
     
     public static final String[] arrAircrafts = {"JetPlane", "Helicopter", "Baloon", "Drone"}; //bonus Drone
 	
-    private static int[][][] arrAircraftMove = 	{ 	/*		SUN				RAIN				FOG				SNOW				WIND 		*/
-				/* JetPlane */						{	{0, 10, 2},		{0, 5, 0},		{0, 1, 0},		{0, 0, -7},		{0, 3, -2}		},
-				/* Helicopter */						{	{10, 0, 2},		{5, 0, 0},		{1, 0, 0},		{0, 0, -12},		{0, 5, -4}		},
-				/* Baloon */							{	{2, 0, 4},		{0, 0, -5},		{0, 0, -3},		{0, 0, -15},		{0, 10, -8}		},
+    private static int[][][] arrAircraftMove = 	{ 	/*		SUN				RAIN			FOG				SNOW				WIND 		*/
+				/* JetPlane */						{	{0, 10, 2},		{0, 5, 0},		{0, 1, 0},		{0, 0, -7},			{0, 3, -2}		},
+				/* Helicopter */					{	{10, 0, 2},		{5, 0, 0},		{1, 0, 0},		{0, 0, -12},		{0, 5, -4}		},
+				/* Baloon */						{	{2, 0, 4},		{0, 0, -5},		{0, 0, -3},		{0, 0, -15},		{0, 10, -8}		},
 				/* Drone */			 				{	{4, 0, 2},		{6, 0, -2},		{1, 0, 0},		{0, 0, -12},		{0, 2, -5}		}			
 													/* {Longitude, Latitude, Height} */  														 
 									  			};
     
     private static int[][] arrWeatherMap = 	{	/*	SUN				RAIN				FOG				SNOW				 WIND			*/
-    												{0,300,500,999}, {201,999,0,250}, {0,200,0,250}, {301,999,500,999}, {0,999,251,499}
+    												{0,299,500,999}, {200,999,0,249}, {0,199,0,249}, {300,999,500,999}, {0,999,250,499}
     												/* {long min, long max, lat min, lat max} */
-    											};
+    										};
+    
+							/* 	   (longitude)	999	_____________________________ 999
+							 * 						|		|		|			|
+							 *						|		|		|			|
+							 *						|		|		|	SNOW	|
+							 *						|  RAIN	|		|			|					height >= 800  // always SUN
+							 *						|		|  WIND	|			|
+							 *						|		|		|___________| 300
+							 *					200	|_______|		|			|
+							 *						|  FOG	|		|	 SUN	|
+							 * 			  		  	|_______|_______|___________| 
+							 * 			   		   0		250		500			999    (latitude)
+							 */
+
     
     
-    									/* 	   (longitude)	999	_____________________________ 999
-    									 * 						|		|		|			|
-    									 *						|		|		|			|
-    									 *						|		|		|	SNOW		|
-    									 *						|  RAIN	|		|			|					height >= 800  // always SUN
-    									 *						|		|  WIND	|			|
-    									 *						|		|		|___________	| 300
-    									 *					200	|_______	|		|			|
-    									 *						|  FOG	|		|	 SUN		|
-    									 * 			  		  	|_______	|_______	|___________	| 
-    									 * 			   		   0			250		500		   999    (latitude)
-    									 */
+    private static final String[][] arrLogAircrafts = { 
+    										/*SUN*/		{	" Sun is shinning, please do not sing.", 
+    														" Whaou! Need my sun cream.",
+    														" Right time for a nap on the sun.",
+    														" I've got sunburn on my head.",
+    														" I love the sun."
+    													},
+    										/*RAIN*/	{	" The rain always begins with a single drop.",
+    														" Yahooo! Time for shower, where's my soap?",
+    														" My machine is clean, could you stop the rain.",
+    														" Forgot my umbrella to dance in the rain.",
+    														" It's raining today."
+    													},
+    										/*FOG*/		{	" What fog, where is my knife to cut it!",
+    														" Who has turned-on the fog?",
+    														" It's a bit chilly and foggy today, so I think you should wear a coat.",
+    														" We could see nothing but fog.",
+    														" I hate the fog!"
+    													},
+    										/*SNOW*/	{	" Let's make a snowman.",
+    														" Snow is falling, like stones!",
+    														" Snowing, like a slap in the face.",
+    														" And the snow makes this place look so magical!",
+    														" It's snowing. We're gonna crash."
+    													},
+    										/*WIND*/	{	" The wind continued.",
+    														" The wind picked up.",
+    														" There is some wind.",
+    														" A cold wind blow in.",
+    														" I hate the wind!"
+    													}
+    												};	
     
+    public static String getLogAircrafts(String weather) {
+    	int index = new Random().nextInt(arrLogAircrafts.length);
+    	int i = 0;
+    	while (i < arrWeathers.length )
+    	{
+    		if (weather.equals(arrWeathers[i]))
+    			break;
+    		i++;
+    	}
+    	return arrLogAircrafts[i][index];
+    }
     
     public static int whatWeather(int height, int longitude, int latitude) {
     		if (height >= 800)
@@ -55,10 +101,10 @@ public class Tools {
     		{
     			if (longitude >= arrWeatherMap[i][j] && longitude <= arrWeatherMap[i][j+1] 
     					&& latitude >= arrWeatherMap[i][j+2] && latitude <= arrWeatherMap[i][j+3])
-    				return i;
+    				break;
     			i++;
     		}
-    		return 0;
+    		return i;
     }
     
 	public static final String RESET = "\u001B[0m";

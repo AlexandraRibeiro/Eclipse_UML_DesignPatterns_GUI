@@ -13,6 +13,10 @@ echo "java avaj_launcher.Main //pas d'arguments"
 java avaj_launcher.Main
 echo
 echo "____________________________________________________________________________"
+echo "java avaj_launcher.Main scenario-aircraftLanded.txt //aircraft landed"
+java avaj_launcher.Main scenario-aircraftLanded.txt
+echo
+echo "____________________________________________________________________________"
 echo "java avaj_launcher.Main scenario-cycle0.txt //cycle == 0"
 java avaj_launcher.Main scenario-cycle0.txt
 echo
@@ -27,6 +31,10 @@ echo
 echo "____________________________________________________________________________"
 echo "java avaj_launcher.Main scenario-cycleneg.txt //cylce negatif"
 java avaj_launcher.Main scenario-cycleneg.txt
+echo
+echo "____________________________________________________________________________"
+echo "java avaj_launcher.Main scenario-doubleID.txt //double ID"
+java avaj_launcher.Main scenario-doubleID.txt
 echo
 echo "____________________________________________________________________________"
 echo "java avaj_launcher.Main scenario-empty.txt //empty file"
@@ -47,6 +55,10 @@ echo
 echo "____________________________________________________________________________"
 echo "java avaj_launcher.Main scenario-nocycle.txt //pas de lignes avec le cycle"
 java avaj_launcher.Main scenario-nocycle.txt
+echo
+echo "____________________________________________________________________________"
+echo "java avaj_launcher.Main scenario-nocycle.txt //one empty line"
+java avaj_launcher.Main scenario-oneemptyline.txt
 echo
 echo "____________________________________________________________________________"
 echo "java avaj_launcher.Main scenario-nocycle.tx //fichier inconnu"

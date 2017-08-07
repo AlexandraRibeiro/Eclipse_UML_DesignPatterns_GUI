@@ -2,8 +2,7 @@ Tower says: Baloon#B1(1) registered to weather tower.
 Tower says: Baloon#B2(2) registered to weather tower.
 Tower says: JetPlane#J1(3) registered to weather tower.
 Tower says: Helicopter#H1(4) registered to weather tower.
-Tower says: Helicopter#H2(5) registered to weather tower.
-Tower says: Helicopter#H3(6) registered to weather tower.
-Tower says: Baloon#B3(7) registered to weather tower.
-Tower says: JetPlane#J2(8) registered to weather tower.
-Tower says: Helicopter#H4(9) registered to weather tower.
+Tower says: Helicopter#H3(5) registered to weather tower.
+Tower says: Baloon#B3(6) registered to weather tower.
+Tower says: JetPlane#J2(7) registered to weather tower.
+Tower says: Helicopter#H4(8) registered to weather tower.

@@ -2,9 +2,6 @@ package avaj_launcher;
 
 public class Parser {
 	
-//	public static final String[] sAircrafts = {"Baloon", "Helicopter", "JetPlane" };
-
-	
 	public int verifFirstLine(String sLine) throws MyExceptions {
 		try {
 			int cycle = Integer.parseInt(sLine);
@@ -45,7 +42,7 @@ public class Parser {
 		int height = Integer.parseInt(sHeight);
 		if (height > 100)
 			return false;
-		else if (height == 0) // this aircaft landed, no need to register
+		else if (height == 0) // this aircraft landed, no need to register
 			Tools.arrID.remove(sID);
 		return true;
 	}
