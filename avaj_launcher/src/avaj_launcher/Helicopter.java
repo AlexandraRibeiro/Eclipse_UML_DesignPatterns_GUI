@@ -11,8 +11,10 @@ public class Helicopter extends Aircraft implements Flyable {
 	
 	@Override
 	public void updateConditions() {
-		// TODO Auto-generated method stub
-
+		String weather = weatherTower.getWeather(coordinates);
+		String logHelicopter = "Helicopter#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
+		
+		Tools.arrLogs.add(logHelicopter);
 	}
 
 	@Override
@@ -21,7 +23,7 @@ public class Helicopter extends Aircraft implements Flyable {
 		this.weatherTower = weatherTower;
 		this.weatherTower.register(this); //Tower.java
 		
-		Tools.arrLogs.add(logHelicopter); //debug > put in file
+		Tools.arrLogs.add(logHelicopter);
 
 	}
 

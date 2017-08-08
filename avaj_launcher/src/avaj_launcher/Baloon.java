@@ -11,8 +11,10 @@ public class Baloon extends Aircraft implements Flyable {
 	
 	@Override
 	public void updateConditions() {
-		// TODO Auto-generated method stub
-
+		String weather = weatherTower.getWeather(coordinates);
+		String logBaloon = "Baloon#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
+		
+		Tools.arrLogs.add(logBaloon);
 	}
 
 	@Override

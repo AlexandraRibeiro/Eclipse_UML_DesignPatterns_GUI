@@ -18,6 +18,9 @@ public abstract class AircraftFactory {
 			//System.out.printf("\t type : >%s<   name : >%s<\n", type, name);
 			f = new Baloon(name, coord );
 		}
+		else {
+			f = new Others(type, name, coord );
+		}
 
 		return f;		
 	}

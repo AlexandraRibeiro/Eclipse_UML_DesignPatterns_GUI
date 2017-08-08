@@ -17,12 +17,13 @@ public class Tools {
 		
     public static final String[] arrWeathers = {"SUN", "RAIN", "FOG", "SNOW", "WIND"}; //bonus Wind
     
-    public static final String[] arrAircrafts = {"JetPlane", "Helicopter", "Baloon", "Drone"}; //bonus Drone
+    public static final String[] arrAircrafts = {"JetPlane", "Helicopter", "Baloon", "Rocket", "Drone"}; //2 bonus "Rocket" + "Drone" > Others.java
 	
     private static int[][][] arrAircraftMove = 	{ 	/*		SUN				RAIN			FOG				SNOW				WIND 		*/
 				/* JetPlane */						{	{0, 10, 2},		{0, 5, 0},		{0, 1, 0},		{0, 0, -7},			{0, 3, -2}		},
 				/* Helicopter */					{	{10, 0, 2},		{5, 0, 0},		{1, 0, 0},		{0, 0, -12},		{0, 5, -4}		},
 				/* Baloon */						{	{2, 0, 4},		{0, 0, -5},		{0, 0, -3},		{0, 0, -15},		{0, 10, -8}		},
+				/* Rocket */						{	{-8, 20,8},		{14, 58, -20},	{40,100,-45},	{10,20,30},			{70,-80,18}		},	
 				/* Drone */			 				{	{4, 0, 2},		{6, 0, -2},		{1, 0, 0},		{0, 0, -12},		{0, 2, -5}		}			
 													/* {Longitude, Latitude, Height} */  														 
 									  			};

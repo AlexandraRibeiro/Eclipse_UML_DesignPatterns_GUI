@@ -10,8 +10,10 @@ public class JetPlane extends Aircraft implements Flyable {
 	
 	@Override
 	public void updateConditions() {
-		// TODO Auto-generated method stub
-
+		String weather = weatherTower.getWeather(coordinates);
+		String logJet = "JetPlane#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
+		
+		Tools.arrLogs.add(logJet);
 	}
 
 	@Override

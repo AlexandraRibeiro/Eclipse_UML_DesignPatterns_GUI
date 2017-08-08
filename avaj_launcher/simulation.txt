@@ -1,8 +1,286 @@
 Tower says: Baloon#B1(1) registered to weather tower.
 Tower says: Baloon#B2(2) registered to weather tower.
-Tower says: JetPlane#J1(3) registered to weather tower.
-Tower says: Helicopter#H1(4) registered to weather tower.
-Tower says: Helicopter#H3(5) registered to weather tower.
-Tower says: Baloon#B3(6) registered to weather tower.
-Tower says: JetPlane#J2(7) registered to weather tower.
-Tower says: Helicopter#H4(8) registered to weather tower.
+Tower says: Drone#D4(3) registered to weather tower.
+Tower says: JetPlane#J1(4) registered to weather tower.
+Tower says: Helicopter#H1(5) registered to weather tower.
+Tower says: Helicopter#H2(6) registered to weather tower.
+Tower says: Helicopter#H3(7) registered to weather tower.
+Tower says: Baloon#B3(8) registered to weather tower.
+Tower says: JetPlane#J2(9) registered to weather tower.
+Tower says: Rocket#R7(10) registered to weather tower.
+Tower says: Helicopter#H4(11) registered to weather tower.
+Baloon#B1(1):  We could see nothing but fog.
+Baloon#B2(2):  We could see nothing but fog.
+Drone#D4(3):  What fog, where is my knife to cut it!
+JetPlane#J1(4):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H1(5):  Forgot my umbrella to dance in the rain.
+Helicopter#H2(6):  We could see nothing but fog.
+Helicopter#H3(7):  What fog, where is my knife to cut it!
+Baloon#B3(8):  Who has turned-on the fog?
+JetPlane#J2(9):  What fog, where is my knife to cut it!
+Rocket#R7(10):  Sun is shinning, please do not sing.
+Helicopter#H4(11):  It's raining today.
+Baloon#B1(1):  I hate the fog!
+Baloon#B2(2):  We could see nothing but fog.
+Drone#D4(3):  We could see nothing but fog.
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  Yahooo! Time for shower, where's my soap?
+Helicopter#H2(6):  Who has turned-on the fog?
+Helicopter#H3(7):  Who has turned-on the fog?
+Baloon#B3(8):  I hate the fog!
+JetPlane#J2(9):  What fog, where is my knife to cut it!
+Rocket#R7(10):  I love the sun.
+Helicopter#H4(11):  Forgot my umbrella to dance in the rain.
+Baloon#B1(1):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Baloon#B2(2):  What fog, where is my knife to cut it!
+Drone#D4(3):  Who has turned-on the fog?
+JetPlane#J1(4):  What fog, where is my knife to cut it!
+Helicopter#H1(5):  The rain always begins with a single drop.
+Helicopter#H2(6):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H3(7):  What fog, where is my knife to cut it!
+Baloon#B3(8):  I hate the fog!
+JetPlane#J2(9):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Rocket#R7(10):  Whaou! Need my sun cream.
+Helicopter#H4(11):  It's raining today.
+Baloon#B1(1):  What fog, where is my knife to cut it!
+Baloon#B2(2):  What fog, where is my knife to cut it!
+Drone#D4(3):  Who has turned-on the fog?
+JetPlane#J1(4):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H1(5):  Yahooo! Time for shower, where's my soap?
+Helicopter#H2(6):  Who has turned-on the fog?
+Helicopter#H3(7):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Baloon#B3(8):  I hate the fog!
+JetPlane#J2(9):  We could see nothing but fog.
+Rocket#R7(10):  Sun is shinning, please do not sing.
+Helicopter#H4(11):  It's raining today.
+Baloon#B1(1):  We could see nothing but fog.
+Baloon#B2(2):  I hate the fog!
+Drone#D4(3):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J1(4):  I hate the fog!
+Helicopter#H1(5):  It's raining today.
+Helicopter#H2(6):  We could see nothing but fog.
+Helicopter#H3(7):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Baloon#B3(8):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J2(9):  Who has turned-on the fog?
+Rocket#R7(10):  I've got sunburn on my head.
+Helicopter#H4(11):  Yahooo! Time for shower, where's my soap?
+Baloon#B1(1):  Who has turned-on the fog?
+Baloon#B2(2):  Who has turned-on the fog?
+Drone#D4(3):  Who has turned-on the fog?
+JetPlane#J1(4):  I hate the fog!
+Helicopter#H1(5):  Yahooo! Time for shower, where's my soap?
+Helicopter#H2(6):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H3(7):  We could see nothing but fog.
+Baloon#B3(8):  I hate the fog!
+JetPlane#J2(9):  Who has turned-on the fog?
+Rocket#R7(10):  I've got sunburn on my head.
+Helicopter#H4(11):  It's raining today.
+Baloon#B1(1):  What fog, where is my knife to cut it!
+Baloon#B2(2):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Drone#D4(3):  Who has turned-on the fog?
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  Yahooo! Time for shower, where's my soap?
+Helicopter#H2(6):  I hate the fog!
+Helicopter#H3(7):  We could see nothing but fog.
+Baloon#B3(8):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J2(9):  I hate the fog!
+Rocket#R7(10):  Right time for a nap on the sun.
+Helicopter#H4(11):  The rain always begins with a single drop.
+Baloon#B1(1):  We could see nothing but fog.
+Baloon#B2(2):  Who has turned-on the fog?
+Drone#D4(3):  We could see nothing but fog.
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  Forgot my umbrella to dance in the rain.
+Helicopter#H2(6):  What fog, where is my knife to cut it!
+Helicopter#H3(7):  What fog, where is my knife to cut it!
+Baloon#B3(8):  We could see nothing but fog.
+JetPlane#J2(9):  I hate the fog!
+Rocket#R7(10):  I've got sunburn on my head.
+Helicopter#H4(11):  My machine is clean, could you stop the rain.
+Baloon#B1(1):  Who has turned-on the fog?
+Baloon#B2(2):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Drone#D4(3):  We could see nothing but fog.
+JetPlane#J1(4):  I hate the fog!
+Helicopter#H1(5):  The rain always begins with a single drop.
+Helicopter#H2(6):  What fog, where is my knife to cut it!
+Helicopter#H3(7):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Baloon#B3(8):  What fog, where is my knife to cut it!
+JetPlane#J2(9):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Rocket#R7(10):  I've got sunburn on my head.
+Helicopter#H4(11):  Forgot my umbrella to dance in the rain.
+Baloon#B1(1):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Baloon#B2(2):  What fog, where is my knife to cut it!
+Drone#D4(3):  What fog, where is my knife to cut it!
+JetPlane#J1(4):  I hate the fog!
+Helicopter#H1(5):  The rain always begins with a single drop.
+Helicopter#H2(6):  I hate the fog!
+Helicopter#H3(7):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Baloon#B3(8):  We could see nothing but fog.
+JetPlane#J2(9):  What fog, where is my knife to cut it!
+Rocket#R7(10):  I love the sun.
+Helicopter#H4(11):  Forgot my umbrella to dance in the rain.
+Baloon#B1(1):  I hate the fog!
+Baloon#B2(2):  We could see nothing but fog.
+Drone#D4(3):  I hate the fog!
+JetPlane#J1(4):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H1(5):  Yahooo! Time for shower, where's my soap?
+Helicopter#H2(6):  What fog, where is my knife to cut it!
+Helicopter#H3(7):  Who has turned-on the fog?
+Baloon#B3(8):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J2(9):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Rocket#R7(10):  Whaou! Need my sun cream.
+Helicopter#H4(11):  Yahooo! Time for shower, where's my soap?
+Baloon#B1(1):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Baloon#B2(2):  Who has turned-on the fog?
+Drone#D4(3):  What fog, where is my knife to cut it!
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  My machine is clean, could you stop the rain.
+Helicopter#H2(6):  What fog, where is my knife to cut it!
+Helicopter#H3(7):  Who has turned-on the fog?
+Baloon#B3(8):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J2(9):  Who has turned-on the fog?
+Rocket#R7(10):  Right time for a nap on the sun.
+Helicopter#H4(11):  Forgot my umbrella to dance in the rain.
+Baloon#B1(1):  Who has turned-on the fog?
+Baloon#B2(2):  I hate the fog!
+Drone#D4(3):  We could see nothing but fog.
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  Forgot my umbrella to dance in the rain.
+Helicopter#H2(6):  What fog, where is my knife to cut it!
+Helicopter#H3(7):  We could see nothing but fog.
+Baloon#B3(8):  Who has turned-on the fog?
+JetPlane#J2(9):  We could see nothing but fog.
+Rocket#R7(10):  Right time for a nap on the sun.
+Helicopter#H4(11):  It's raining today.
+Baloon#B1(1):  Who has turned-on the fog?
+Baloon#B2(2):  What fog, where is my knife to cut it!
+Drone#D4(3):  What fog, where is my knife to cut it!
+JetPlane#J1(4):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H1(5):  The rain always begins with a single drop.
+Helicopter#H2(6):  Who has turned-on the fog?
+Helicopter#H3(7):  What fog, where is my knife to cut it!
+Baloon#B3(8):  Who has turned-on the fog?
+JetPlane#J2(9):  I hate the fog!
+Rocket#R7(10):  I love the sun.
+Helicopter#H4(11):  My machine is clean, could you stop the rain.
+Baloon#B1(1):  I hate the fog!
+Baloon#B2(2):  Who has turned-on the fog?
+Drone#D4(3):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J1(4):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H1(5):  My machine is clean, could you stop the rain.
+Helicopter#H2(6):  We could see nothing but fog.
+Helicopter#H3(7):  We could see nothing but fog.
+Baloon#B3(8):  What fog, where is my knife to cut it!
+JetPlane#J2(9):  What fog, where is my knife to cut it!
+Rocket#R7(10):  I've got sunburn on my head.
+Helicopter#H4(11):  Yahooo! Time for shower, where's my soap?
+Baloon#B1(1):  I hate the fog!
+Baloon#B2(2):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Drone#D4(3):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J1(4):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H1(5):  Forgot my umbrella to dance in the rain.
+Helicopter#H2(6):  We could see nothing but fog.
+Helicopter#H3(7):  I hate the fog!
+Baloon#B3(8):  What fog, where is my knife to cut it!
+JetPlane#J2(9):  We could see nothing but fog.
+Rocket#R7(10):  I love the sun.
+Helicopter#H4(11):  Yahooo! Time for shower, where's my soap?
+Baloon#B1(1):  What fog, where is my knife to cut it!
+Baloon#B2(2):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Drone#D4(3):  I hate the fog!
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  It's raining today.
+Helicopter#H2(6):  Who has turned-on the fog?
+Helicopter#H3(7):  Who has turned-on the fog?
+Baloon#B3(8):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J2(9):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Rocket#R7(10):  Sun is shinning, please do not sing.
+Helicopter#H4(11):  My machine is clean, could you stop the rain.
+Baloon#B1(1):  We could see nothing but fog.
+Baloon#B2(2):  We could see nothing but fog.
+Drone#D4(3):  Who has turned-on the fog?
+JetPlane#J1(4):  I hate the fog!
+Helicopter#H1(5):  Yahooo! Time for shower, where's my soap?
+Helicopter#H2(6):  What fog, where is my knife to cut it!
+Helicopter#H3(7):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Baloon#B3(8):  Who has turned-on the fog?
+JetPlane#J2(9):  Who has turned-on the fog?
+Rocket#R7(10):  I've got sunburn on my head.
+Helicopter#H4(11):  The rain always begins with a single drop.
+Baloon#B1(1):  We could see nothing but fog.
+Baloon#B2(2):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Drone#D4(3):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J1(4):  I hate the fog!
+Helicopter#H1(5):  It's raining today.
+Helicopter#H2(6):  I hate the fog!
+Helicopter#H3(7):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Baloon#B3(8):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J2(9):  What fog, where is my knife to cut it!
+Rocket#R7(10):  I love the sun.
+Helicopter#H4(11):  The rain always begins with a single drop.
+Baloon#B1(1):  What fog, where is my knife to cut it!
+Baloon#B2(2):  What fog, where is my knife to cut it!
+Drone#D4(3):  I hate the fog!
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  Yahooo! Time for shower, where's my soap?
+Helicopter#H2(6):  Who has turned-on the fog?
+Helicopter#H3(7):  I hate the fog!
+Baloon#B3(8):  What fog, where is my knife to cut it!
+JetPlane#J2(9):  I hate the fog!
+Rocket#R7(10):  Right time for a nap on the sun.
+Helicopter#H4(11):  Yahooo! Time for shower, where's my soap?
+Baloon#B1(1):  I hate the fog!
+Baloon#B2(2):  We could see nothing but fog.
+Drone#D4(3):  Who has turned-on the fog?
+JetPlane#J1(4):  We could see nothing but fog.
+Helicopter#H1(5):  My machine is clean, could you stop the rain.
+Helicopter#H2(6):  Who has turned-on the fog?
+Helicopter#H3(7):  We could see nothing but fog.
+Baloon#B3(8):  Who has turned-on the fog?
+JetPlane#J2(9):  We could see nothing but fog.
+Rocket#R7(10):  I've got sunburn on my head.
+Helicopter#H4(11):  It's raining today.
+Baloon#B1(1):  Who has turned-on the fog?
+Baloon#B2(2):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Drone#D4(3):  I hate the fog!
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  My machine is clean, could you stop the rain.
+Helicopter#H2(6):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H3(7):  We could see nothing but fog.
+Baloon#B3(8):  Who has turned-on the fog?
+JetPlane#J2(9):  What fog, where is my knife to cut it!
+Rocket#R7(10):  Whaou! Need my sun cream.
+Helicopter#H4(11):  It's raining today.
+Baloon#B1(1):  What fog, where is my knife to cut it!
+Baloon#B2(2):  I hate the fog!
+Drone#D4(3):  I hate the fog!
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  The rain always begins with a single drop.
+Helicopter#H2(6):  What fog, where is my knife to cut it!
+Helicopter#H3(7):  What fog, where is my knife to cut it!
+Baloon#B3(8):  We could see nothing but fog.
+JetPlane#J2(9):  Who has turned-on the fog?
+Rocket#R7(10):  Whaou! Need my sun cream.
+Helicopter#H4(11):  The rain always begins with a single drop.
+Baloon#B1(1):  Who has turned-on the fog?
+Baloon#B2(2):  What fog, where is my knife to cut it!
+Drone#D4(3):  We could see nothing but fog.
+JetPlane#J1(4):  It's a bit chilly and foggy today, so I think you should wear a coat.
+Helicopter#H1(5):  Yahooo! Time for shower, where's my soap?
+Helicopter#H2(6):  Who has turned-on the fog?
+Helicopter#H3(7):  We could see nothing but fog.
+Baloon#B3(8):  It's a bit chilly and foggy today, so I think you should wear a coat.
+JetPlane#J2(9):  What fog, where is my knife to cut it!
+Rocket#R7(10):  I love the sun.
+Helicopter#H4(11):  It's raining today.
+Baloon#B1(1):  We could see nothing but fog.
+Baloon#B2(2):  We could see nothing but fog.
+Drone#D4(3):  We could see nothing but fog.
+JetPlane#J1(4):  Who has turned-on the fog?
+Helicopter#H1(5):  My machine is clean, could you stop the rain.
+Helicopter#H2(6):  We could see nothing but fog.
+Helicopter#H3(7):  Who has turned-on the fog?
+Baloon#B3(8):  I hate the fog!
+JetPlane#J2(9):  What fog, where is my knife to cut it!
+Rocket#R7(10):  Sun is shinning, please do not sing.
+Helicopter#H4(11):  My machine is clean, could you stop the rain.
