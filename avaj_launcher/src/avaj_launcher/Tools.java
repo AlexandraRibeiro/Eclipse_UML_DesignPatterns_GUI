@@ -23,7 +23,7 @@ public class Tools {
 				/* JetPlane */						{	{0, 10, 2},		{0, 5, 0},		{0, 1, 0},		{0, 0, -7},			{0, 3, -2}		},
 				/* Helicopter */					{	{10, 0, 2},		{5, 0, 0},		{1, 0, 0},		{0, 0, -12},		{0, 5, -4}		},
 				/* Baloon */						{	{2, 0, 4},		{0, 0, -5},		{0, 0, -3},		{0, 0, -15},		{0, 10, -8}		},
-				/* Rocket */						{	{-8, 20,8},		{14, 58, -20},	{40,100,-45},	{10,20,30},			{70,-80,18}		},	
+				/* Rocket */						{	{-8, 20,8},		{14, 58, -20},	{0,100,0},		{10,20,30},			{0,-100,0}		},	
 				/* Drone */			 				{	{4, 0, 2},		{6, 0, -2},		{1, 0, 0},		{0, 0, -12},		{0, 2, -5}		}			
 													/* {Longitude, Latitude, Height} */  														 
 									  			};
@@ -37,7 +37,7 @@ public class Tools {
 							 * 						|		|		|			|
 							 *						|		|		|			|
 							 *						|		|		|	SNOW	|
-							 *						|  RAIN	|		|			|					height >= 800  // always SUN
+							 *						|  RAIN	|		|			|					height >= 85  // always SUN
 							 *						|		|  WIND	|			|
 							 *						|		|		|___________| 300
 							 *					200	|_______|		|			|
@@ -94,7 +94,7 @@ public class Tools {
     }
     
     public static int whatWeather(int height, int longitude, int latitude) {
-    		if (height >= 800)
+    		if (height >= 85)
     			return 0;
     		int i = 0;
     		int j = 0;
@@ -106,6 +106,29 @@ public class Tools {
     			i++;
     		}
     		return i;
+    }
+    
+    public static Coordinates changeCoordinates(Coordinates coordinates, String weather, String type) {
+    	int longitude = coordinates.getLongitude();
+    	int latitude = coordinates.getLatitude();
+    	int height = coordinates.getHeight();
+    	
+    	int i = 0;
+    	while (i < arrWeathers.length )
+    	{
+    		if (weather.equals(arrWeathers[i]))
+    			break;
+    		i++;
+    	}
+    	int j = 0;
+    	while (j < arrAircrafts.length )
+    	{
+    		if (type.equals(arrAircrafts[j]))
+    			break;
+    		j++;
+    	}
+    	coordinates = null;
+    	return new Coordinates(longitude + arrAircraftMove[i][j][0] , latitude + arrAircraftMove[i][j][1] , height + arrAircraftMove[i][j][2]);
     }
     
 	public static final String RESET = "\u001B[0m";

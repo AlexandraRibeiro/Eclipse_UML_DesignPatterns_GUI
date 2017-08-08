@@ -12,7 +12,19 @@ public class Helicopter extends Aircraft implements Flyable {
 	@Override
 	public void updateConditions() {
 		String weather = weatherTower.getWeather(coordinates);
-		String logHelicopter = "Helicopter#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
+		String logHelicopter;
+		
+		coordinates = Tools.changeCoordinates(coordinates, weather, "Helicopter");
+		int height = coordinates.getHeight();
+		if (height < 1)
+		{
+			weatherTower.unregister(this);
+			logHelicopter = "Helicopter#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather) + '\n' 
+					+ "Helicopter#" + name + "(" + Long.toString(id) + ") landing.\n"
+					+ "Tower says: " + "Helicopter#" + name + "(" + Long.toString(id) + ") unregistered from weather tower.";
+		}
+		else
+			logHelicopter = "Helicopter#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
 		
 		Tools.arrLogs.add(logHelicopter);
 	}

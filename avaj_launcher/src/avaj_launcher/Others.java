@@ -13,9 +13,21 @@ public class Others extends Aircraft implements Flyable {
 	@Override
 	public void updateConditions() {
 		String weather = weatherTower.getWeather(coordinates);
-		String logOthers = type + "#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
+		String log;
 		
-		Tools.arrLogs.add(logOthers);
+		coordinates = Tools.changeCoordinates(coordinates, weather, type);
+		int height = coordinates.getHeight();
+		if (height < 1)
+		{
+			weatherTower.unregister(this);
+			log = type + "#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather) + '\n' 
+					+ type + "#" + name + "(" + Long.toString(id) + ") landing.\n"
+					+ "Tower says: " + type + "#" + name + "(" + Long.toString(id) + ") unregistered from weather tower.";
+		}
+		else
+			log = type + "#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
+		
+		Tools.arrLogs.add(log);
 	}
 
 	@Override

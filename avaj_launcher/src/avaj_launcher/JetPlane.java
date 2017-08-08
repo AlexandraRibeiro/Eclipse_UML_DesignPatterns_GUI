@@ -11,7 +11,19 @@ public class JetPlane extends Aircraft implements Flyable {
 	@Override
 	public void updateConditions() {
 		String weather = weatherTower.getWeather(coordinates);
-		String logJet = "JetPlane#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
+		String logJet;
+		
+		coordinates = Tools.changeCoordinates(coordinates, weather, "JetPlane");
+		int height = coordinates.getHeight();
+		if (height < 1)
+		{
+			weatherTower.unregister(this);
+			logJet = "JetPlane#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather) + '\n' 
+					+ "JetPlane#" + name + "(" + Long.toString(id) + ") landing.\n"
+					+ "Tower says: " + "JetPlane#" + name + "(" + Long.toString(id) + ") unregistered from weather tower.";
+		}
+		else
+			logJet = "JetPlane#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
 		
 		Tools.arrLogs.add(logJet);
 	}

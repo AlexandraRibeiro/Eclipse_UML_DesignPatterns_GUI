@@ -12,7 +12,19 @@ public class Baloon extends Aircraft implements Flyable {
 	@Override
 	public void updateConditions() {
 		String weather = weatherTower.getWeather(coordinates);
-		String logBaloon = "Baloon#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
+		String logBaloon;
+		
+		coordinates = Tools.changeCoordinates(coordinates, weather, "Baloon");
+		int height = coordinates.getHeight();
+		if (height < 1)
+		{
+			weatherTower.unregister(this);
+			logBaloon = "Baloon#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather) + '\n' 
+					+ "Baloon#" + name + "(" + Long.toString(id) + ") landing.\n"
+					+ "Tower says: " + "Baloon#" + name + "(" + Long.toString(id) + ") unregistered from weather tower.";
+		}
+		else
+			logBaloon = "Baloon#" + name + "(" + Long.toString(id) + "): " + Tools.getLogAircrafts(weather);
 		
 		Tools.arrLogs.add(logBaloon);
 	}
