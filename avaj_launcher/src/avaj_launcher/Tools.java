@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Tools {
 	
-	public static boolean verbose = true;
+	public static boolean generateMD5 = true;
 	
 	public static ArrayList<String> arrID = new ArrayList<String>();
 	
@@ -79,7 +79,21 @@ public class Tools {
     														" A cold wind blow in.",
     														" I hate the wind!"
     													}
-    												};	
+    												};
+    
+    
+    private static final String[] arrMD5Sentence = 	{
+    													"This file are encrypted in MD5",
+    													"MD5, here we are!",
+    													"Don't worry this is MD5 !",
+    													"MD5? I think.",
+    													"Let me guess... MD5?"
+    												};
+    
+    
+    public static String[] getMD5Sentences() {
+    	return arrMD5Sentence;
+    }
     
     public static String getLogAircrafts(String weather) {
     	int index = new Random().nextInt(arrLogAircrafts.length);

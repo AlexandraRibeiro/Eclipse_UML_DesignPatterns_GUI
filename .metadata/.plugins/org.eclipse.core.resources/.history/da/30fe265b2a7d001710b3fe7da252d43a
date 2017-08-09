@@ -1,0 +1,15 @@
+package avaj_launcher;
+
+import java.io.BufferedReader;
+
+public class GenerateMD5 {
+	
+	GenerateMD5 (BufferedReader buff) {
+		generator(buff);
+	}
+	
+	private void generator(BufferedReader buff) {
+		
+	}
+	
+}

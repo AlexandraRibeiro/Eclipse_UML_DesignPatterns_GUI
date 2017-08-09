@@ -1,0 +1,19 @@
+package avaj_launcher;
+
+public class Crypted {
+	private String cryptedSentence() {
+		String hash;
+		return hash;
+	}
+	
+	private String cryptedNumber() {
+		String hash;
+		return hash;
+	}
+	
+	private String cryptedFirstBloc() {
+		String hash;
+		return hash;
+	}
+	
+}

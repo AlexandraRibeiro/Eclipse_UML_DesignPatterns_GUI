@@ -13,7 +13,7 @@ public class Parser {
 	}
 	
 	public boolean regex(String sLine) {
-		String reg = "^[A-Z][a-zA-Z]+[ ][A-Z][0-9]+[ ][0-9]{1,3}[ ][0-9]{1,3}[ ][0-9]{1,3}$";
+		String reg = "^[A-Z][a-zA-Z]+[ ][A-Z][0-9]{1,3}[ ][0-9]{1,3}[ ][0-9]{1,3}[ ][0-9]{1,3}$";
 		 return (sLine.matches(reg));
 	}
 	

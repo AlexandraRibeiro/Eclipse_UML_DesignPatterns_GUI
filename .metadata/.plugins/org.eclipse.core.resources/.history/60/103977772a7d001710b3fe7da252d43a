@@ -1,0 +1,19 @@
+package avaj_launcher;
+
+import java.io.BufferedReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class GenerateMD5 {
+	
+	GenerateMD5 (BufferedReader buff) {
+		generator(buff);
+	}
+	
+	private void generator(BufferedReader buff) {
+		Path sim = Paths.get("simulation.txt");
+		Files.write(sim, Tools.arrLogs);
+	}
+	
+}

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class Leader {
@@ -18,7 +19,7 @@ public class Leader {
 	public boolean landed = false;
 	BufferedReader buff = null;
 	
-	public void reader(String[] args) throws IOException, MyExceptions {
+	public void reader(String[] args) throws IOException, MyExceptions, NoSuchAlgorithmException {
 		if (args.length == 1) {
 			String sCurrentLine;
 			try {
@@ -28,6 +29,11 @@ public class Leader {
 				throw new MyExceptions("\n=> Error : '" + args[0] + "' no such file or directory");
 			}
 
+			if (Tools.generateMD5 == true) {
+				GenerateMD5 generateMD5 = new GenerateMD5(buff, args[0]);
+				return;
+			}
+			
 			// Parser ______________________________________________________________________________
 			p = new Parser();
 			nb_aircraft = -1;
@@ -79,6 +85,12 @@ public class Leader {
 					wt.changeWeather();
 					i++;
 				}
+				
+				/* Test MD5 -> enlever throw NoSuchAlgorithmException */
+				String hash1 = "35454B055CC325EA1AF2126E27707052";
+				Crypted crypted = new Crypted();
+				String hash2 = crypted.cryptedStr("ILoveJava");
+				System.out.println("\n** Test MD5 :" + crypted.verifHashs(hash1, hash2));
 				
 				// Generate a file simulation.txt___________________________________________________
 				Path sim = Paths.get("simulation.txt");
