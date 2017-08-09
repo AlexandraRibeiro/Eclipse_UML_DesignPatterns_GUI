@@ -14,7 +14,7 @@ public class Leader {
 	public int nb_cycle;
 	public int nb_aircraft;
 	private String[] sArrayLine;
-	private ArrayList<String> arrAllLines = new ArrayList<String>();;
+	private ArrayList<String> arrAllLines = new ArrayList<String>();
 	private Parser p;
 	public boolean landed = false;
 	BufferedReader buff = null;
@@ -29,10 +29,7 @@ public class Leader {
 				throw new MyExceptions("\n=> Error : '" + args[0] + "' no such file or directory");
 			}
 
-			if (Tools.generateMD5 == true) {
-				GenerateMD5 generateMD5 = new GenerateMD5(buff, args[0]);
-				return;
-			}
+
 			
 			// Parser ______________________________________________________________________________
 			p = new Parser();
@@ -40,7 +37,6 @@ public class Leader {
 
 			while ((sCurrentLine = buff.readLine()) != null) {
 				landed = false;
-				System.out.println(sCurrentLine); //debug
 				
 				if (nb_aircraft == -1) {
 					nb_cycle = p.verifFirstLine(sCurrentLine);
@@ -58,6 +54,14 @@ public class Leader {
 			else if (nb_aircraft == 0)
 				throw new MyExceptions("\n=> All aircrafts landed");
 			else {
+				
+				/* MD5 generator > File ok ___________________________________*/
+				if (Tools.generateMD5 == true) {
+					new GenerateMD5(arrAllLines, args[0], nb_cycle);
+					return;
+				}
+				/* ___________________________________________________________*/
+				
 				int i = 0;
 				while (i < arrAllLines.size()) {
 					System.out.println(arrAllLines.get(i));
@@ -87,9 +91,9 @@ public class Leader {
 				}
 				
 				/* Test MD5 -> enlever throw NoSuchAlgorithmException */
-				String hash1 = "35454B055CC325EA1AF2126E27707052";
+				String hash1 = "5B86C55E8E0EFEC9A65584CB31D1B324";
 				Crypted crypted = new Crypted();
-				String hash2 = crypted.cryptedStr("ILoveJava");
+				String hash2 = crypted.cryptedStr("Baloon B2");
 				System.out.println("\n** Test MD5 :" + crypted.verifHashs(hash1, hash2));
 				
 				// Generate a file simulation.txt___________________________________________________
