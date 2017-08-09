@@ -37,31 +37,32 @@ public class Crypted {
 		return false;
 	}
 	
-	public String hashNumberToString(int limit, String hash) {
+	public boolean verifHashNumber(int limit, String hash) {
 		int i = 0;
 		while (i <= limit)
 		{
 			if (Integer.toString(i).equals(hash) == true)
-				return Integer.toString(i);
+				return true;
 			i++;
 		}
-		return null;
+		return false;
 	}
 	
-	public String hashBlocToString(String hash) {
+	public boolean verifHashBloc(String hash) {
 		int i = 0;
 		int j = 0;
 		while (i < Tools.arrAircrafts.length)
 		{
 			j = 0;
 			while (j < 1000) {
-				if (hash.equals(Tools.arrAircrafts[i] + " " + Tools.arrAircrafts[i].charAt(0) + Integer.toString(j)) == true)
-					return Tools.arrAircrafts[i] + " " + Tools.arrAircrafts[i].charAt(0) + Integer.toString(j);
+				
 				j++;
 			}
+			if (hash.equals(Tools.arrAircrafts[i] + " " + Tools.arrAircrafts[i].charAt(0)) == true)
+				return true;
 			i++;
 		}
-		return null;
+		return false;
 	}
 	
 	public boolean isThisMD5(String str) throws NoSuchAlgorithmException {
