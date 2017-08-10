@@ -6,6 +6,29 @@ import java.security.NoSuchAlgorithmException;
 import javax.xml.bind.DatatypeConverter;
 
 public class Crypted {
+
+	/* VERIF & DEBUG ///////////////////////////////////////////////////////////////////////////////////////////////// */
+	public boolean isThisMD5(String str) throws NoSuchAlgorithmException {
+		String[] MD5Sentences = Tools.getMD5Sentences();
+		int i = 0;	
+		while (i < MD5Sentences.length)
+		{
+			if (str.equals(cryptedStr(MD5Sentences[i])) == true)
+				return true;
+			i++;
+		}
+		return false;
+	}
+		
+	public boolean verifHashs(String hash1, String hash2) {
+		if (hash1.equals(hash2) == true)
+			return true;
+		return false;
+	}
+	
+
+	
+	/* MODIF STR->HASH && HASH->STR ///////////////////////////////////////////////////////////////////////////////// */
 	public String cryptedStr(String str) throws NoSuchAlgorithmException {
 		String hash;
 		
@@ -31,32 +54,29 @@ public class Crypted {
 		return hash;
 	}
 	
-	public boolean verifHashs(String hash1, String hash2) {
-		if (hash1.equals(hash2) == true)
-			return true;
-		return false;
-	}
-	
-	public String hashNumberToString(int limit, String hash) {
+	public String hashNumberToString(int limit, String hash) throws NoSuchAlgorithmException {
 		int i = 0;
 		while (i <= limit)
 		{
-			if (Integer.toString(i).equals(hash) == true)
+			if (cryptedStr(Integer.toString(i)).equals(hash) == true)
 				return Integer.toString(i);
 			i++;
 		}
 		return null;
 	}
 	
-	public String hashBlocToString(String hash) {
+	public String hashBlocToString(String hash) throws NoSuchAlgorithmException {
 		int i = 0;
 		int j = 0;
+		String str;
 		while (i < Tools.arrAircrafts.length)
 		{
 			j = 0;
 			while (j < 1000) {
-				if (hash.equals(Tools.arrAircrafts[i] + " " + Tools.arrAircrafts[i].charAt(0) + Integer.toString(j)) == true)
-					return Tools.arrAircrafts[i] + " " + Tools.arrAircrafts[i].charAt(0) + Integer.toString(j);
+				str = Tools.arrAircrafts[i] + " " + Tools.arrAircrafts[i].charAt(0) + Integer.toString(j);
+				System.out.println("str : " + str);
+				if (hash.equals(cryptedStr(str)) == true)
+					return str;
 				j++;
 			}
 			i++;
@@ -64,16 +84,5 @@ public class Crypted {
 		return null;
 	}
 	
-	public boolean isThisMD5(String str) throws NoSuchAlgorithmException {
-		String[] MD5Sentences = Tools.getMD5Sentences();
-		int i = 0;
-		
-		while (i < MD5Sentences.length)
-		{
-			if (str.equals(cryptedStr(MD5Sentences[i])) == true)
-				return true;
-			i++;
-		}
-		return false;
-	}
+
 }

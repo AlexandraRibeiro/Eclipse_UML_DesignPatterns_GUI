@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;avaj_launcher/src/avaj_launcher/GenerateTXT.java&apos; to &apos;DecryptedMD5.java&apos;" description="Rename resource &apos;GenerateTXT.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/avaj_launcher/GenerateTXT.java" name="DecryptedMD5.java" stamp="1502314731681" updateReferences="true"/>
+</session>

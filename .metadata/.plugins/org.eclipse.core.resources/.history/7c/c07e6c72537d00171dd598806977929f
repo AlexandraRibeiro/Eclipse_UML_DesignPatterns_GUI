@@ -1,0 +1,15 @@
+package avaj_launcher;
+
+import java.util.ArrayList;
+
+
+
+public class DecryptedMD5 {
+	
+	public ArrayList<String> allLines;
+	
+	public ArrayList<String> generateAllLines() {
+		
+		return allLines;
+	}
+}

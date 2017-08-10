@@ -1,0 +1,16 @@
+package avaj_launcher;
+
+import java.io.BufferedReader;
+import java.util.ArrayList;
+
+
+
+public class DecryptedMD5 {
+	
+	public ArrayList<String> allLines;
+	
+	public ArrayList<String> generateAllLines(BufferedReader buff) {
+		
+		return allLines;
+	}
+}

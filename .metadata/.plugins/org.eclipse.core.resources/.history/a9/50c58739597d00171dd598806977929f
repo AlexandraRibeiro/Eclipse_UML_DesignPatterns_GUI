@@ -1,0 +1,27 @@
+package avaj_launcher;
+
+import java.io.BufferedReader;
+import java.util.ArrayList;
+
+
+
+public class DecryptedMD5 {
+	
+	public ArrayList<String> allLines = new ArrayList<String>();
+	
+	public ArrayList<String> generateAllLines(BufferedReader buff) {
+		String sCurrentLine;
+		Crypted crypted = new Crypted();
+		int i = 0;
+		
+		//voir si besoin de supprimer la 1ere ligne ou si le buffer garde en memoire la lecture de la 1ere ligne dans leader
+		while ((sCurrentLine = buff.readLine()) != null) {
+			allLines.add(crypted.hashNumberToString(256, sCurrentLine));
+			while (allLines != null && ) {
+				allLines.add()
+			}
+		}
+		
+		return allLines;
+	}
+}

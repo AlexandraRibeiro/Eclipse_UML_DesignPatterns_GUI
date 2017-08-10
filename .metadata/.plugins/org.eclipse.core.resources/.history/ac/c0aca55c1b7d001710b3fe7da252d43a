@@ -1,9 +1,0 @@
-package avaj_launcher;
-
-public class Crypted {
-	private cryptedSentence() {
-		
-	}
-	
-	
-}
