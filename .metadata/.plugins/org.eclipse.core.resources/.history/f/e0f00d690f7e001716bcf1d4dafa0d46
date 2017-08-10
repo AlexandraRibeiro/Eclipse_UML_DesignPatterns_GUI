@@ -1,0 +1,70 @@
+package avaj_launcher;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.border.Border;
+
+public class swing1 extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public swing1() {
+		super("Generator");
+		
+		WindowListener l = new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		};
+		
+		addWindowListener(l);
+	
+//		JButton bouton = new JButton("Longitude");
+		JPanel pannel = new JPanel();
+//		panneau.add(bouton);
+		
+		Border border = BorderFactory.createTitledBorder("Aircraft's type");
+		pannel.setBorder(border);
+		
+		ButtonGroup groupe = new ButtonGroup();
+		JRadioButton button1 = new JRadioButton("JetPlane");
+		groupe.add(button1);
+		pannel.add(button1);
+		JRadioButton button2 = new JRadioButton("Helicopter");
+		groupe.add(button2);
+		pannel.add(button2);
+		JRadioButton button3 = new JRadioButton("Baloon");
+		groupe.add(button3);
+		pannel.add(button3);
+		JRadioButton button4 = new JRadioButton("Rocket");
+		groupe.add(button4);
+		pannel.add(button4);
+		JRadioButton button5 = new JRadioButton("Drone");
+		groupe.add(button5);
+		pannel.add(button5);
+		
+		Container contentPane = this.getContentPane();
+		contentPane.add(pannel, BorderLayout.CENTER);
+		getContentPane().add(pannel);
+		
+		Border border = BorderFactory.createTitledBorder("Aircraft's type 2");
+		
+		
+		setSize(500,100);
+		setResizable(false);
+		setVisible(true);
+	}
+
+}
+                                                                                                                        
