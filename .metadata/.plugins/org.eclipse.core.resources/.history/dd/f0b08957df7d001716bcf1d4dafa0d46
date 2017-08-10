@@ -74,6 +74,7 @@ public class Crypted {
 			j = 0;
 			while (j < 1000) {
 				str = Tools.arrAircrafts[i] + " " + Tools.arrAircrafts[i].charAt(0) + Integer.toString(j);
+				System.out.println("str : " + str);
 				if (hash.equals(cryptedStr(str)) == true)
 					return str;
 				j++;

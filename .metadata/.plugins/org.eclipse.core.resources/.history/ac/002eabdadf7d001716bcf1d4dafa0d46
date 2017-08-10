@@ -17,6 +17,7 @@ public class DecryptedMD5 {
 		Crypted crypted = new Crypted();
 		int i = 0;
 		
+		//voir si besoin de supprimer la 1ere ligne ou si le buffer garde en memoire la lecture de la 1ere ligne dans leader
 		while ((sCurrentLine = buff.readLine()) != null) {
 			if (i == 0)
 				allLines.add(crypted.hashNumberToString(256, sCurrentLine));
@@ -34,7 +35,6 @@ public class DecryptedMD5 {
 			}
 			i++;
 		}
-		
 		
 		/* VERIF & DEBUG *///////////////////////////////////////////////////////////////
 		System.out.println("allLine : " + allLines);
