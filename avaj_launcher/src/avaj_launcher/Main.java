@@ -2,13 +2,11 @@ package avaj_launcher;
 
 import java.io.IOException;
 
-import javax.swing.JFrame;
-
 public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
-		JFrame frame = new swing1();
+		BonusSwing.initWindow();
 		
 		try {
 			Leader lead = new Leader();

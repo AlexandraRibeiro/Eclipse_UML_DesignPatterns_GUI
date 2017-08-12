@@ -1,0 +1,9 @@
+package avaj_launcher;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+public class swing2 extends JFrame implements ActionListener{
+
+}

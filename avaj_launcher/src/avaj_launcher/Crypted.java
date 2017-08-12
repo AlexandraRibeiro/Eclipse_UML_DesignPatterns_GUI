@@ -10,7 +10,9 @@ public class Crypted {
 	/* VERIF & DEBUG ///////////////////////////////////////////////////////////////////////////////////////////////// */
 	public boolean isThisMD5(String str) throws NoSuchAlgorithmException {
 		String[] MD5Sentences = Tools.getMD5Sentences();
-		int i = 0;	
+		int i = 0;
+		if (Tools.generateMD5 == true) //secu if arg1 -> md5 file && arg2 -> -g
+			return false;
 		while (i < MD5Sentences.length)
 		{
 			if (str.equals(cryptedStr(MD5Sentences[i])) == true)

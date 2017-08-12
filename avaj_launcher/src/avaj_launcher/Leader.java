@@ -22,7 +22,9 @@ public class Leader {
 	Crypted crypted = new Crypted();
 	
 	public void reader(String[] args) throws IOException, MyExceptions, NoSuchAlgorithmException {
-		if (args.length == 1) {
+		if (args.length == 2 && args[1].equals("-g") == true)
+			Tools.generateMD5 = true;
+		if (args.length == 1 || Tools.generateMD5 == true) {
 			String sCurrentLine;
 			try {
 				buff = new BufferedReader(new FileReader(args[0]));
@@ -130,7 +132,6 @@ public class Leader {
 		if (p.regex(sCurrentLine) == false)
 			throw new MyExceptions("\n=> Error (regex) : line " + (nb_aircraft + 2)); //error regex
 		else {
-			System.out.println("-> ok regex"); // debug
 			arrAllLines.add(sCurrentLine); //stock all Lines for params new Flyable
 			sArrayLine = sCurrentLine.split(" ");
 			readType();
@@ -142,7 +143,6 @@ public class Leader {
 			throw new MyExceptions("\n=> Error (parser) : '" + sArrayLine[0] + "' unknown type, line " + (nb_aircraft + 2)); //error Type
 		}
 		else {
-			System.out.println("-> ok Type"); //debug
 			readName();
 		}
 	}
@@ -152,7 +152,6 @@ public class Leader {
 			throw new MyExceptions("\n=> Error (parser) : '" + sArrayLine[1] + "' wrong Name, line " + (nb_aircraft + 2)); //error ID
 		}
 		else {
-			System.out.println("-> ok Name"); //debug
 			readHeight();
 		}
 	}
@@ -160,15 +159,11 @@ public class Leader {
 	private void readHeight() throws MyExceptions {
 		if (p.parserVerifHeight(sArrayLine[1], sArrayLine[4]) == false) {
 			sArrayLine[4] = "100";
-			System.out.println("-> ok Height = 100"); //debug
 		}
 		else if (Integer.parseInt(sArrayLine[4]) == 0) {
 			nb_aircraft --;
-			System.out.println("-> ok this aircraft landed, no need to register"); //debug
 			landed = true;
 		}
-		else
-			System.out.println("-> ok Height"); //debug
 	}
 	/* *******************************************************************************************/
 	

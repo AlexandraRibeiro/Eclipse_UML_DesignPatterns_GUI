@@ -1,0 +1,17 @@
+package avaj_launcher;
+
+import javax.swing.JFrame;
+
+public class BonusSwing extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	BonusSwing () {
+		
+	}
+	
+	
+}

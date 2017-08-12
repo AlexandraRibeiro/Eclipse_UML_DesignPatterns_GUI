@@ -1,0 +1,7 @@
+package avaj_launcher;
+
+import java.awt.event.ActionListener;
+
+public class StateListener implements ActionListener{
+
+}

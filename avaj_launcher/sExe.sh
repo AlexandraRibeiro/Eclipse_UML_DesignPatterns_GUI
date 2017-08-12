@@ -63,3 +63,13 @@ echo
 echo "____________________________________________________________________________"
 echo "java avaj_launcher.Main scenario-nocycle.tx //fichier inconnu"
 java avaj_launcher.Main scenario-nocycle.tx
+echo
+echo "____________________________________________________________________________"
+echo "java avaj_launcher.Main scenario.txt -g // creation md5 valide"
+java avaj_launcher.Main scenario.txt -g
+echo
+echo "____________________________________________________________________________"
+echo "java avaj_launcher.Main scenario_MD5.txt -g // creation md5 erreur fichier"
+java avaj_launcher.Main scenario_MD5.txt -g
+
+

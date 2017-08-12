@@ -2,7 +2,6 @@ package avaj_launcher;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
@@ -39,7 +38,7 @@ public class swing1 extends JFrame implements ActionListener
 		
 		panel1 = new JPanel(new BorderLayout());
 		panel1.setBackground(new Color(255,255,255));
-		panel1.setLayout(null);
+		panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
 		panel1.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createTitledBorder("New Aircraft"),
                 BorderFactory.createEmptyBorder(10,10,10,10)));
@@ -70,27 +69,19 @@ public class swing1 extends JFrame implements ActionListener
 
 		
 		
-		panel2 = new JPanel();
-		panel2.setLayout(null);
-		panel2.setLayout(new BoxLayout(panel2, BoxLayout.Y_AXIS)); // Specifies that components should be laid out top to bottom.
-		panel2.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createTitledBorder("File"),
-				BorderFactory.createEmptyBorder(1,1,1,1)));
+//		panel2 = new JPanel();
+//		panel2.setLayout(null);
+//		panel2.setLayout(new BoxLayout(panel2, BoxLayout.Y_AXIS)); // Specifies that components should be laid out top to bottom.
+//		panel2.setBorder(BorderFactory.createCompoundBorder(
+//				BorderFactory.createTitledBorder("File"),
+//				BorderFactory.createEmptyBorder(1,1,1,1)));
 				
 		
-		
-//		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,pannel, pannel2);
+
+//		
+//		splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,panel1,panel2);
 //		splitPane.setDividerLocation(200);
 //		splitPane.setOneTouchExpandable(true);
-		
-//		Container contentPane = this.getContentPane();
-//		contentPane.add(panel1, BorderLayout.CENTER);
-//		getContentPane().add(panel1);
-//		
-		
-		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,panel1,panel2);
-		splitPane.setDividerLocation(200);
-		splitPane.setOneTouchExpandable(true);
 		
 		 panelboutton = new JPanel(new BorderLayout());
 		  panelboutton.setLayout(null);
@@ -119,7 +110,7 @@ public class swing1 extends JFrame implements ActionListener
 		  splitPane2 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,splitPane,panelboutton);
 		  splitPane2.setDividerLocation(455);
 		  		  
-		  fenetre1.add(splitPane2);
+		  fenetre1.add(panel1);
 		  fenetre1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		  fenetre1.setResizable(false);
 		  fenetre1.setBounds(150, 150, 685, 550);

@@ -30,6 +30,7 @@ public class GenerateMD5 {
 		
 		Path sim = Paths.get(filenameWithOutExt + "_MD5.txt");
 		Files.write(sim, arrMD5);
+		System.out.println(Tools.GREEN + "=> " + filenameWithOutExt + "_MD5.txt created" + Tools.RESET);
 	}
 	
 	public void addMD5Sentence() throws NoSuchAlgorithmException {

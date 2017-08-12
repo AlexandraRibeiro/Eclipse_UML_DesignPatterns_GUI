@@ -1,0 +1,51 @@
+package avaj_launcher;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class BonusSwing extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private static BonusSwing window;
+
+	private BonusSwing () {
+//		BonusSwing sw = new BonusSwing();
+//		sw.init();
+	}
+	
+	private static void initWindow() {
+		if (window == null) {
+			window = new BonusSwing();
+			this.setTitle("Test radio boutons");
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+			JPanel panel1 = new JPanel(new GridLayout(0,1));
+		
+			panel1 = new JPanel(new BorderLayout());
+			panel1.setBackground(new Color(255,255,255));
+			panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
+			panel1.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createTitledBorder("New Aircraft"),
+            BorderFactory.createEmptyBorder(10,10,10,10)));
+		
+//		Border border = BorderFactory.createTitledBorder("Aircraft's type");
+//		panel.setBorder(border);
+		
+			this.add(panel1);
+			this.setSize(500,100);
+			this.setResizable(false);
+			this.setVisible(true);
+		}
+	}
+	
+}
