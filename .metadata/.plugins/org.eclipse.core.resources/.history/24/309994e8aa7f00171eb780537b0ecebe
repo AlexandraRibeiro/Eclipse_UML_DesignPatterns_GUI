@@ -1,0 +1,18 @@
+package avaj_launcher;
+
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.JRadioButton;
+
+public class ItemListen implements ItemListener{
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		System.out.println("source : " + ((JRadioButton)e.getSource()).getText() + 
+				" - state : " + ((JRadioButton)e.getSource()).isSelected());
+	}
+
+	
+	
+}

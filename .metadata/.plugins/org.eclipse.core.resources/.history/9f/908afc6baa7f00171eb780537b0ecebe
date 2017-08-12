@@ -84,7 +84,7 @@ public class BonusSwing extends JFrame {
         BorderFactory.createEmptyBorder(10,10,10,10)));
 		
 		JCheckBox flag = new JCheckBox("-g : generate MD5");
-		flag.addItemListener(new ItemListen());
+		flag.addActionListener(new StateListener());
 		panel2.add(flag);
 		
 		

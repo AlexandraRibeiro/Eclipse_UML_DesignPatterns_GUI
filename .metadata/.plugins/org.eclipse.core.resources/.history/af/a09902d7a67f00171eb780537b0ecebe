@@ -2,6 +2,11 @@ package avaj_launcher;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -30,7 +35,7 @@ public class BonusSwing extends JFrame {
 	}
 	
 	private void init() {
-		this.setTitle("Generator");
+		this.setTitle("Geneator");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setLayout(new BorderLayout());
@@ -44,7 +49,6 @@ public class BonusSwing extends JFrame {
 		panel1.setBorder(BorderFactory.createCompoundBorder(
         BorderFactory.createTitledBorder("Aircraft's type"),
         BorderFactory.createEmptyBorder(10,10,10,10)));
-		
 		
 		ButtonGroup groupe = new ButtonGroup();
 		
@@ -84,11 +88,8 @@ public class BonusSwing extends JFrame {
         BorderFactory.createEmptyBorder(10,10,10,10)));
 		
 		JCheckBox flag = new JCheckBox("-g : generate MD5");
-		flag.addItemListener(new ItemListen());
+		flag.addActionListener(new StateListener());
 		panel2.add(flag);
-		
-		
-		
 		
 		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,panel1,panel2);
 		splitPane.setDividerLocation(100);
