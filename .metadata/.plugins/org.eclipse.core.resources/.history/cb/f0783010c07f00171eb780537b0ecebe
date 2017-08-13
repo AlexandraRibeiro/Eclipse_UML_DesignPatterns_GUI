@@ -42,8 +42,8 @@ public class BonusSwing extends JFrame {
 		panel1.setBackground(new Color(255,255,255));
 		panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
 		panel1.setBorder(BorderFactory.createCompoundBorder(
-							BorderFactory.createTitledBorder("Aircraft's type"),
-							BorderFactory.createEmptyBorder(10,10,10,10)));
+        BorderFactory.createTitledBorder("Aircraft's type"),
+        BorderFactory.createEmptyBorder(10,10,10,10)));
 		
 		
 		ButtonGroup groupe = new ButtonGroup();
@@ -80,8 +80,8 @@ public class BonusSwing extends JFrame {
 		panel2.setBackground(new Color(242,242,242));
 		panel2.setLayout(new BoxLayout(panel2, BoxLayout.Y_AXIS));
 		panel2.setBorder(BorderFactory.createCompoundBorder(
-							BorderFactory.createTitledBorder("Flag"),
-							BorderFactory.createEmptyBorder(10,10,10,10)));
+        BorderFactory.createTitledBorder("Flag"),
+        BorderFactory.createEmptyBorder(10,10,10,10)));
 		
 		JCheckBox flag = new JCheckBox("-g : generate MD5");
 		flag.addItemListener(new ItemListen());
@@ -93,14 +93,14 @@ public class BonusSwing extends JFrame {
 		panel3.setBackground(new Color(242,242,242));
 		panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
 		panel3.setBorder(BorderFactory.createCompoundBorder(
-							BorderFactory.createTitledBorder("Flag2"),
-							BorderFactory.createEmptyBorder(10,10,10,10)));
+        BorderFactory.createTitledBorder("Flag"),
+        BorderFactory.createEmptyBorder(10,10,10,10)));
 		
 		
 		
 		JCheckBox flag2 = new JCheckBox("-g : generate MD5");
-		flag2.addItemListener(new ItemListen());
-		panel3.add(flag2);
+		flag.addItemListener(new ItemListen());
+		panel2.add(flag2);
 		
 		
 		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,panel1,panel2);
@@ -108,11 +108,9 @@ public class BonusSwing extends JFrame {
 		splitPane.setOneTouchExpandable(true);
 		
 		
-		JSplitPane splitPane2 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,splitPane,panel3);
-		splitPane2.setDividerLocation(100);
-		splitPane2.setOneTouchExpandable(true);
 		
-		this.add(splitPane2);
+		
+		this.add(splitPane);
 		this.setSize(500,500);
 		this.setResizable(false);
 		this.setVisible(true);

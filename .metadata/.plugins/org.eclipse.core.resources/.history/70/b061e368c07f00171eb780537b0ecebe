@@ -93,7 +93,7 @@ public class BonusSwing extends JFrame {
 		panel3.setBackground(new Color(242,242,242));
 		panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
 		panel3.setBorder(BorderFactory.createCompoundBorder(
-							BorderFactory.createTitledBorder("Flag2"),
+							BorderFactory.createTitledBorder("Flag"),
 							BorderFactory.createEmptyBorder(10,10,10,10)));
 		
 		
@@ -112,7 +112,7 @@ public class BonusSwing extends JFrame {
 		splitPane2.setDividerLocation(100);
 		splitPane2.setOneTouchExpandable(true);
 		
-		this.add(splitPane2);
+		this.add(splitPane);
 		this.setSize(500,500);
 		this.setResizable(false);
 		this.setVisible(true);

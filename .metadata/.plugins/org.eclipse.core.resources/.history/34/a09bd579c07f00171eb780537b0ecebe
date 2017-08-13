@@ -93,7 +93,7 @@ public class BonusSwing extends JFrame {
 		panel3.setBackground(new Color(242,242,242));
 		panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
 		panel3.setBorder(BorderFactory.createCompoundBorder(
-							BorderFactory.createTitledBorder("Flag2"),
+							BorderFactory.createTitledBorder("Flag"),
 							BorderFactory.createEmptyBorder(10,10,10,10)));
 		
 		
