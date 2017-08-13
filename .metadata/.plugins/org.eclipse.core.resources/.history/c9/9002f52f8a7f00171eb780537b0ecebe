@@ -1,9 +1,0 @@
-package avaj_launcher;
-
-import javax.swing.JFrame;
-
-public class swing2 extends JFrame {
-
-	
-	
-}

@@ -93,10 +93,10 @@ public class swing1 extends JFrame implements ActionListener
 		  
 		  nex = new JButton ("<html><body><u>N</u>ext</body></html>");
 		  nex.setBounds(390, 15, 90, 25);
-		  nex.addActionListener((ActionListener) this);
+//		  nex.addActionListener((ActionListener) this);
 		  //nex.setEnabled(false);
 		  panelboutton.add(nex);
-		  pre.addActionListener((ActionListener) this);
+//		  pre.addActionListener((ActionListener) this);
 		  
 		  fin = new JButton ("<html><body><u>F</u>inish</body></html>");
 		  fin.setBounds(485, 15, 90, 25);
