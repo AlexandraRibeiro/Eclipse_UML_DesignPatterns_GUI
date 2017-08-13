@@ -66,7 +66,6 @@ public class BonusSwing extends JFrame {
 		
 		 JButton setButton = new JButton ("<html><body><u>S</u>et</body></html>");
 		  setButton.setBounds(50, 70, 90, 25);
-		  setButton.addActionListener(new StateListener());
 		  panel.add(setButton);
 		
 		
@@ -187,19 +186,17 @@ public class BonusSwing extends JFrame {
 			
 		JCheckBox flag2 = new JCheckBox("generate MD5");
 		flag2.addItemListener(new ItemListen());
-		flag2.setBounds(375, 15, 290, 25);
+		flag2.setBounds(346, 15, 290, 25);
 		panelboutton.add(flag2);
 		  	  
 		  
 		  JButton fin = new JButton ("<html><body><u>F</u>inish</body></html>");
 		  fin.setBounds(310, 55, 90, 25);
 		  fin.setEnabled(false);
-		  fin.addActionListener(new StateListener());
 		  panelboutton.add(fin);
 		  
 		  JButton can = new JButton ("<html><body><u>C</u>ancel</body></html>");
 		  can.setBounds(405, 55, 90, 25);
-		  can.addActionListener(new StateListener());
 		  panelboutton.add(can);
 
 		  

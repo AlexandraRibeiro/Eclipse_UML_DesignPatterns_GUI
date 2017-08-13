@@ -16,6 +16,7 @@ public class StateListener implements ActionListener{
 			System.out.println("SET press");
 		else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>C</u>ancel</body></html>") == true) {
 			System.out.println("Cancel press");
+			dispose();
 		}
 		else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>F</u>inish</body></html>") == true)
 			System.out.println("Finish press");

@@ -12,13 +12,6 @@ public class StateListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>A</u>dd</body></html>") == true)
 			System.out.println("ADD press");
-		else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>S</u>et</body></html>") == true)
-			System.out.println("SET press");
-		else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>C</u>ancel</body></html>") == true) {
-			System.out.println("Cancel press");
-		}
-		else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>F</u>inish</body></html>") == true)
-			System.out.println("Finish press");
 		else
 			System.out.println("source : " + ((AbstractButton) e.getSource()).getText() + 
 				" - state : " + ((AbstractButton) e.getSource()).isSelected());

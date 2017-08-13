@@ -1,0 +1,20 @@
+package avaj_launcher;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.AbstractButton;
+import javax.swing.JRadioButton;
+
+public class StateListener implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (((AbstractButton) e.getSource())).getText().equals("<html><body><u>A</u>dd</body></html>") == true)
+			System.out.println("ADD press");
+		else
+			System.out.println("source : " + ((AbstractButton) e.getSource()).getText() + 
+				" - state : " + ((AbstractButton) e.getSource()).isSelected());
+	}
+	
+}
