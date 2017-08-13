@@ -60,7 +60,7 @@ public class BonusSwing extends JFrame {
 				
 		JTextField textField_0 = new JTextField();
 		textField_0.setToolTipText("max value 255");
-		textField_0.setBounds(120, 30, 46, 22);
+		textField_0.setBounds(76, 30, 46, 22);
 		panel.add(textField_0);
 		
 		
@@ -128,7 +128,7 @@ public class BonusSwing extends JFrame {
 				
 		JTextField textField_1 = new JTextField();
 		textField_1.setToolTipText("max value 999");
-		textField_1.setBounds(120, 230, 46, 22);
+		textField_1.setBounds(97, 230, 46, 22);
 		panel1.add(textField_1);
 		
 		JLabel idnum2 = new JLabel("Longitude :");
@@ -137,7 +137,7 @@ public class BonusSwing extends JFrame {
 				
 		JTextField textField_2 = new JTextField();
 		textField_2.setToolTipText("max value 999");
-		textField_2.setBounds(120, 280, 46, 22);
+		textField_2.setBounds(91, 280, 46, 22);
 		panel1.add(textField_2);
 		
 		JLabel idnum3 = new JLabel("Latitude :");
@@ -146,7 +146,7 @@ public class BonusSwing extends JFrame {
 				
 		JTextField textField_3 = new JTextField();
 		textField_3.setToolTipText("max value 999");
-		textField_3.setBounds(120, 330, 46, 22);
+		textField_3.setBounds(91, 330, 46, 22);
 		panel1.add(textField_3);
 	
 		JLabel idnum4 = new JLabel("Height :");
@@ -155,7 +155,7 @@ public class BonusSwing extends JFrame {
 				
 		JTextField textField_4 = new JTextField();
 		textField_4.setToolTipText("max value 999");
-		textField_4.setBounds(120, 380, 46, 22);
+		textField_4.setBounds(91, 380, 46, 22);
 		panel1.add(textField_4);
 		
 		

@@ -60,7 +60,7 @@ public class BonusSwing extends JFrame {
 				
 		JTextField textField_0 = new JTextField();
 		textField_0.setToolTipText("max value 255");
-		textField_0.setBounds(120, 30, 46, 22);
+		textField_0.setBounds(76, 30, 46, 22);
 		panel.add(textField_0);
 		
 		
