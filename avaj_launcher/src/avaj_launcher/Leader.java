@@ -24,6 +24,10 @@ public class Leader {
 	public void reader(String[] args) throws IOException, MyExceptions, NoSuchAlgorithmException {
 		if (args.length == 2 && args[1].equals("-g") == true)
 			Tools.generateMD5 = true;
+		else if (args.length == 1 && args[0].equals("-G") == true) {
+			BonusSwing.initWindow();
+			return;
+		}
 		if (args.length == 1 || Tools.generateMD5 == true) {
 			String sCurrentLine;
 			try {
