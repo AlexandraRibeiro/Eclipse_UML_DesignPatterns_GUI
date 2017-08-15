@@ -1,0 +1,11 @@
+package avaj_launcher;
+
+/*	static == global
+* 	final == const
+*/
+
+public class ToolsSwing {
+
+		
+	
+}

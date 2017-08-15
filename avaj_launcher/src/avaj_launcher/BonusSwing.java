@@ -2,11 +2,13 @@ package avaj_launcher;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -25,6 +27,28 @@ public class BonusSwing extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private static BonusSwing window;
+	
+	private JPanel panel1;
+	private JPanel panel2;
+	private JPanel panelboutton;
+	
+	private JButton fin;
+	
+	private JTextField textField_0; //cycle 0->255
+	private JTextField textField_1; //name 0->999
+	private JTextField textField_2; //longitude
+	private JTextField textField_3; //latitude
+	private JTextField textField_4; //height
+	
+	private JLabel labelCycle = new JLabel(); //file cycle
+	private JLabel labelNameChar = new JLabel(); 
+	private JLabel labelName = new JLabel(); //name
+	private JLabel labelLongitude = new JLabel();
+	private JLabel labelLatitude = new JLabel();
+	private JLabel labelHeight = new JLabel();
+	
+	private boolean GUICycle = false;
+	
 
 	private BonusSwing () {}
 	
@@ -58,20 +82,20 @@ public class BonusSwing extends JFrame {
 		idnum0.setBounds(16, 30, 66, 20);
 		panel.add(idnum0);
 				
-		JTextField textField_0 = new JTextField();
+		textField_0 = new JTextField();
 		textField_0.setToolTipText("max value 255");
 		textField_0.setBounds(120, 30, 46, 22);
 		panel.add(textField_0);
 		
 		
 		 JButton setButton = new JButton ("<html><body><u>S</u>et</body></html>");
-		  setButton.setBounds(50, 70, 90, 25);
+		  setButton.setBounds(45, 70, 90, 25);
 		  setButton.addActionListener(new StateListener());
 		  panel.add(setButton);
 		
 		
 /* //////////////////////////////////////////////////////////////////////////////// */	
-		JPanel panel1 = new JPanel();
+		panel1 = new JPanel();
 	
 		panel1 = new JPanel(new BorderLayout());
 		panel1.setBackground(new Color(204,229,255));
@@ -126,7 +150,7 @@ public class BonusSwing extends JFrame {
 		idnum1.setBounds(16, 230, 66, 20);
 		panel1.add(idnum1);
 				
-		JTextField textField_1 = new JTextField();
+		textField_1 = new JTextField();
 		textField_1.setToolTipText("max value 999");
 		textField_1.setBounds(120, 230, 46, 22);
 		panel1.add(textField_1);
@@ -135,7 +159,7 @@ public class BonusSwing extends JFrame {
 		idnum2.setBounds(16, 280, 76, 20);
 		panel1.add(idnum2);
 				
-		JTextField textField_2 = new JTextField();
+		textField_2 = new JTextField();
 		textField_2.setToolTipText("max value 999");
 		textField_2.setBounds(120, 280, 46, 22);
 		panel1.add(textField_2);
@@ -144,7 +168,7 @@ public class BonusSwing extends JFrame {
 		idnum3.setBounds(16, 330, 66, 20);
 		panel1.add(idnum3);
 				
-		JTextField textField_3 = new JTextField();
+		textField_3 = new JTextField();
 		textField_3.setToolTipText("max value 999");
 		textField_3.setBounds(120, 330, 46, 22);
 		panel1.add(textField_3);
@@ -153,20 +177,20 @@ public class BonusSwing extends JFrame {
 		idnum4.setBounds(16, 380, 66, 20);
 		panel1.add(idnum4);
 				
-		JTextField textField_4 = new JTextField();
+		textField_4 = new JTextField();
 		textField_4.setToolTipText("max value 999");
 		textField_4.setBounds(120, 380, 46, 22);
 		panel1.add(textField_4);
 		
 		
 		 JButton addButton = new JButton ("<html><body><u>A</u>dd</body></html>");
-		  addButton.setBounds(50, 440, 90, 25);
+		  addButton.setBounds(45, 440, 90, 25);
 		  addButton.addActionListener(new StateListener());
 		  panel1.add(addButton);
 		
 		
 /* //////////////////////////////////////////////////////////////////////////////// */	
-		JPanel panel2 = new JPanel();
+		panel2 = new JPanel();
 		
 		panel2 = new JPanel(new BorderLayout());
 		panel2.setBackground(new Color(255,255,255));
@@ -177,9 +201,32 @@ public class BonusSwing extends JFrame {
 							BorderFactory.createEmptyBorder(10,10,10,10)));
 
 
+		labelCycle.setBounds(16, 20, 66, 20);
+		labelCycle.setText("");
+		panel2.add(labelCycle);
+		
+		labelNameChar.setBounds(16, 40, 66, 20);
+		labelNameChar.setText("");
+		panel2.add(labelNameChar);
+		
+		labelName.setBounds(16, 20, 40, 20);
+		labelName.setText("");
+		panel2.add(labelName);
+		
+		labelLongitude.setBounds(16, 40, 66, 20);
+		labelLongitude.setText("");
+		panel2.add(labelLongitude);
+		
+		labelLatitude.setBounds(16, 40, 66, 20);
+		labelLatitude.setText("");
+		panel2.add(labelLatitude);
+				
+		labelHeight.setBounds(16, 40, 66, 20);
+		labelHeight.setText("");
+		panel2.add(labelHeight);
 
 /* //////////////////////////////////////////////////////////////////////////////// */	
-		JPanel panelboutton = new JPanel();
+		panelboutton = new JPanel();
 		  panelboutton = new JPanel(new BorderLayout());
 		  panelboutton.setLayout(null);
 //		  panelboutton.setSize(50, 100);
@@ -191,7 +238,7 @@ public class BonusSwing extends JFrame {
 		panelboutton.add(flag2);
 		  	  
 		  
-		  JButton fin = new JButton ("<html><body><u>F</u>inish</body></html>");
+		  fin = new JButton ("<html><body><u>F</u>inish</body></html>");
 		  fin.setBounds(310, 55, 90, 25);
 		  fin.setEnabled(false);
 		  fin.addActionListener(new StateListener());
@@ -211,7 +258,7 @@ public class BonusSwing extends JFrame {
 		splitPane1.setOneTouchExpandable(false);
 		  
 		JSplitPane splitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,splitPane1,panel2);
-		splitPane2.setDividerLocation(200);
+		splitPane2.setDividerLocation(185);
 		splitPane2.setOneTouchExpandable(false);
 		
 		JSplitPane splitPane3 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,splitPane2,panelboutton);
@@ -223,5 +270,89 @@ public class BonusSwing extends JFrame {
 		this.setResizable(false);
 		this.setVisible(true);
 	}		
+	
+	
+	private void verifGUICycle() {
+		try {
+			int cycle = Integer.parseInt(textField_0.getText());
+			if (cycle < 1 || cycle > 255) {
+				System.out.println("\n=> Error : cycle < 1 || cycle > 255");
+				fin.setEnabled(false);
+				GUICycle = false;
+			}
+			else {
+				System.out.println("Debug cycle = " + cycle);
+				labelCycle.setText(textField_0.getText());
+				GUICycle = true;
+			}
+		}
+		catch (Exception e) {
+			System.out.println("\n=> Error : cycle not an integer");
+			fin.setEnabled(false);
+			GUICycle = false;
+		}
+	}
+	
+	
+	private void verifAircraft() {
+		try {
+			int name = Integer.parseInt(textField_1.getText());
+			int longitute = Integer.parseInt(textField_2.getText());
+			int latitude = Integer.parseInt(textField_3.getText());
+			int height = Integer.parseInt(textField_4.getText());
+			if (name < 0 || name > 999)
+				System.out.println("\n=> Error : name < 0 || name > 999");
+			if (longitute < 0 || longitute > 999)
+				System.out.println("\n=> Error : longitude < 0 || longitude > 999");
+			if (latitude < 0 || latitude > 999)
+				System.out.println("\n=> Error : latitute < 0 || latitude > 999");
+			if (height < 0 || height > 999)
+				System.out.println("\n=> Error : height < 0 || height > 999");
+			else {
+				
+			}
+		}
+		catch (Exception e) {
+			System.out.println("\n=> Error : values");
+		}
+	}
+		
+		public class StateListener implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>A</u>dd</body></html>") == true)
+					System.out.println("ADD press");
+				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>S</u>et</body></html>") == true) {
+					verifGUICycle();
+				}
+				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>C</u>ancel</body></html>") == true) {
+					System.out.println("Cancel press");
+					window.setVisible(false);
+					window.dispose();
+				}
+				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>F</u>inish</body></html>") == true) {
+					System.out.println("Finish press");
+					//create file
+					window.setVisible(false);
+					window.dispose();
+				}
+				else
+					System.out.println("source : " + ((AbstractButton) e.getSource()).getText() + 
+							" - state : " + ((AbstractButton) e.getSource()).isSelected());
+			}
+		
+		}
+		
+		public class ItemListen implements ItemListener{
+
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				System.out.println(e.getStateChange() == ItemEvent.SELECTED
+		                ? "SELECTED" : "DESELECTED");
+			}
+		}
+
+
 	
 }
