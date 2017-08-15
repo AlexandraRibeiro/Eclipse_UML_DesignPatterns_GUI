@@ -6,6 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
@@ -28,11 +33,19 @@ public class BonusSwing extends JFrame {
 	
 	private static BonusSwing window;
 	
+	private static final String[] arrRadioButtonGUI = {"JetPlane", "Helicopter", "Baloon", "Rocket", "Drone"};
+	private static final boolean[] arrAircraftsGUI = {false, false, false, false, false};
+	
+	private static String cycleSet = "";
+	private static ArrayList<String> arrFileAircrafts = new ArrayList<String>();
+	
 	private JPanel panel1;
 	private JPanel panel2;
 	private JPanel panelboutton;
 	
 	private JButton fin;
+	
+	private ButtonGroup groupe;
 	
 	private JTextField textField_0; //cycle 0->255
 	private JTextField textField_1; //name 0->999
@@ -41,14 +54,11 @@ public class BonusSwing extends JFrame {
 	private JTextField textField_4; //height
 	
 	private JLabel labelCycle = new JLabel(); //file cycle
-	private JLabel labelNameChar = new JLabel(); 
-	private JLabel labelName = new JLabel(); //name
-	private JLabel labelLongitude = new JLabel();
-	private JLabel labelLatitude = new JLabel();
-	private JLabel labelHeight = new JLabel();
+	private JLabel labelAircraft = new JLabel();
 	
 	private boolean GUICycle = false;
-	
+	private boolean GUIAircraft = false;
+
 
 	private BonusSwing () {}
 	
@@ -72,10 +82,6 @@ public class BonusSwing extends JFrame {
 		panel = new JPanel(new BorderLayout());
 		panel.setBackground(new Color(153,204,255));
 		panel.setLayout(null);
-//		panel.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
-//		panel.setBorder(BorderFactory.createCompoundBorder(
-//							BorderFactory.createTitledBorder(""),
-//							BorderFactory.createEmptyBorder(10,10,10,10)));
 				
 		
 		JLabel idnum0 = new JLabel("Cycle(s) :");
@@ -100,10 +106,6 @@ public class BonusSwing extends JFrame {
 		panel1 = new JPanel(new BorderLayout());
 		panel1.setBackground(new Color(204,229,255));
 		panel1.setLayout(null);
-//		panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
-//		panel1.setBorder(BorderFactory.createCompoundBorder(
-//							BorderFactory.createTitledBorder("New Aircraft"),
-//							BorderFactory.createEmptyBorder(10,10,10,10)));
 		
 				
 		JLabel type = new JLabel("Type :");
@@ -111,33 +113,33 @@ public class BonusSwing extends JFrame {
 		panel1.add(type);
 		
 		
-		ButtonGroup groupe = new ButtonGroup();
+		groupe = new ButtonGroup();
 		
-		JRadioButton button1 = new JRadioButton(" JetPlane");
+		JRadioButton button1 = new JRadioButton(arrRadioButtonGUI[0]);
 		groupe.add(button1);
 		button1.addActionListener(new StateListener());
 		button1.setBounds(16, 60, 90, 25);
 		panel1.add(button1);
 		
-		JRadioButton button2 = new JRadioButton(" Helicopter");
+		JRadioButton button2 = new JRadioButton(arrRadioButtonGUI[1]);
 		groupe.add(button2);
 		button2.addActionListener(new StateListener());
 		button2.setBounds(16, 90, 110, 25);
 		panel1.add(button2);
 		
-		JRadioButton button3 = new JRadioButton(" Baloon");
+		JRadioButton button3 = new JRadioButton(arrRadioButtonGUI[2]);
 		groupe.add(button3);
 		button3.addActionListener(new StateListener());
 		button3.setBounds(16, 120, 100, 25);
 		panel1.add(button3);
 		
-		JRadioButton button4 = new JRadioButton(" Rocket");
+		JRadioButton button4 = new JRadioButton(arrRadioButtonGUI[3]);
 		groupe.add(button4);
 		button4.addActionListener(new StateListener());
 		button4.setBounds(16, 150, 100, 25);
 		panel1.add(button4);
 		
-		JRadioButton button5 = new JRadioButton(" Drone");
+		JRadioButton button5 = new JRadioButton(arrRadioButtonGUI[4]);
 		groupe.add(button5);
 		button5.addActionListener(new StateListener());
 		button5.setBounds(16, 180, 100, 25);
@@ -205,25 +207,11 @@ public class BonusSwing extends JFrame {
 		labelCycle.setText("");
 		panel2.add(labelCycle);
 		
-		labelNameChar.setBounds(16, 40, 66, 20);
-		labelNameChar.setText("");
-		panel2.add(labelNameChar);
-		
-		labelName.setBounds(16, 20, 40, 20);
-		labelName.setText("");
-		panel2.add(labelName);
-		
-		labelLongitude.setBounds(16, 40, 66, 20);
-		labelLongitude.setText("");
-		panel2.add(labelLongitude);
-		
-		labelLatitude.setBounds(16, 40, 66, 20);
-		labelLatitude.setText("");
-		panel2.add(labelLatitude);
-				
-		labelHeight.setBounds(16, 40, 66, 20);
-		labelHeight.setText("");
-		panel2.add(labelHeight);
+		labelAircraft.setBounds(16, 40, 466, 100);
+		labelAircraft.setLocation(16,0);
+		labelAircraft.setText("");
+		panel2.add(labelAircraft);
+
 
 /* //////////////////////////////////////////////////////////////////////////////// */	
 		panelboutton = new JPanel();
@@ -284,6 +272,9 @@ public class BonusSwing extends JFrame {
 				System.out.println("Debug cycle = " + cycle);
 				labelCycle.setText(textField_0.getText());
 				GUICycle = true;
+				cycleSet = textField_0.getText();
+				if (GUIAircraft == true)
+					fin.setEnabled(true);
 			}
 		}
 		catch (Exception e) {
@@ -309,7 +300,26 @@ public class BonusSwing extends JFrame {
 			if (height < 0 || height > 999)
 				System.out.println("\n=> Error : height < 0 || height > 999");
 			else {
-				
+				int i = 0;
+				while (i < arrAircraftsGUI.length) {
+					if (arrAircraftsGUI[i] == true)
+						break;
+					i++;
+				}
+				if (i == arrAircraftsGUI.length )
+					System.out.println("\n=> Error : no Type selected");
+				else {
+					labelAircraft.setText("<html>" + arrRadioButtonGUI[i] + ' '
+											+ arrRadioButtonGUI[i].charAt(0) + textField_1.getText() + ' '
+											+ textField_2.getText() + ' '
+											+ textField_3.getText() + ' '
+											+ textField_4.getText() + "<br> test nouvelle ligne</html>");
+					setFile(arrRadioButtonGUI[i], arrRadioButtonGUI[i].charAt(0) + textField_1.getText(), textField_2.getText(),
+							textField_3.getText(), textField_4.getText());
+					GUIAircraft = true;
+					if (GUICycle == true)
+						fin.setEnabled(true);
+				}
 			}
 		}
 		catch (Exception e) {
@@ -317,12 +327,32 @@ public class BonusSwing extends JFrame {
 		}
 	}
 		
+	
+	private void setFile(String type, String name, String longitude, String latitude, String height) {
+		arrFileAircrafts.add(type + ' '
+							+ name + ' '
+							+ longitude + ' '
+							+ latitude + ' '
+							+ height);
+	}
+	
+	private void createFile() throws IOException {
+		Path sim = Paths.get("generate.txt");
+//		Files.write(sim,cycleSet);
+		Files.write(sim,arrFileAircrafts);
+		
+		System.out.println(Tools.GREEN + "=> generate.txt created" + Tools.RESET);
+	}
+	
+		
 		public class StateListener implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>A</u>dd</body></html>") == true)
+				if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>A</u>dd</body></html>") == true) {
 					System.out.println("ADD press");
+					verifAircraft();
+				}
 				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>S</u>et</body></html>") == true) {
 					verifGUICycle();
 				}
@@ -333,13 +363,26 @@ public class BonusSwing extends JFrame {
 				}
 				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>F</u>inish</body></html>") == true) {
 					System.out.println("Finish press");
-					//create file
+					try {
+						createFile();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 					window.setVisible(false);
 					window.dispose();
 				}
-				else
+				else {
+					int i = 0;
 					System.out.println("source : " + ((AbstractButton) e.getSource()).getText() + 
 							" - state : " + ((AbstractButton) e.getSource()).isSelected());
+					while (i < arrRadioButtonGUI.length) {
+						if (((AbstractButton) e.getSource()).getText().equals(arrRadioButtonGUI[i]) && ((AbstractButton) e.getSource()).isSelected() == true )
+							arrAircraftsGUI[i] = true;
+						else
+							arrAircraftsGUI[i] = false;
+						i++;
+					}
+				}
 			}
 		
 		}

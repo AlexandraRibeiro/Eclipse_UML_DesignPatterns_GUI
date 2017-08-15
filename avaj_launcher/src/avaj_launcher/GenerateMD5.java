@@ -37,7 +37,6 @@ public class GenerateMD5 {
 		String[] MD5Sentences = Tools.getMD5Sentences();
 		int index = new Random().nextInt(MD5Sentences.length);
 	
-	
 		arrMD5.add(crypted.cryptedStr(MD5Sentences[index]));
 	}
 	
