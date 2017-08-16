@@ -21,8 +21,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.Border;
 
 public class BonusSwing extends JFrame {
 
@@ -38,10 +42,13 @@ public class BonusSwing extends JFrame {
 	
 	private static String cycleSet = "";
 	private static ArrayList<String> arrFileAircrafts = new ArrayList<String>();
+	public static ArrayList<String> arrAircraftsNames = new ArrayList<String>();
 	
 	private JPanel panel1;
 	private JPanel panel2;
 	private JPanel panelboutton;
+	
+	private JLabel errors;
 	
 	private JButton fin;
 	
@@ -54,7 +61,9 @@ public class BonusSwing extends JFrame {
 	private JTextField textField_4; //height
 	
 	private JLabel labelCycle = new JLabel(); //file cycle
-	private JLabel labelAircraft = new JLabel();
+	private JTextArea textFile = new JTextArea();
+	private JScrollPane jScrollPane;
+	
 	
 	private boolean GUICycle = false;
 	private boolean GUIAircraft = false;
@@ -77,7 +86,7 @@ public class BonusSwing extends JFrame {
 
 
 	
-/* //////////////////////////////////////////////////////////////////////////////// */		
+/* PANEL //////////////////////////////////////////////////////////////////////////////// */		
 		JPanel panel = new JPanel();
 		panel = new JPanel(new BorderLayout());
 		panel.setBackground(new Color(153,204,255));
@@ -100,7 +109,7 @@ public class BonusSwing extends JFrame {
 		  panel.add(setButton);
 		
 		
-/* //////////////////////////////////////////////////////////////////////////////// */	
+/* PANEL1 ////////////////////////////////////////////////////////////////////////////// */	
 		panel1 = new JPanel();
 	
 		panel1 = new JPanel(new BorderLayout());
@@ -191,39 +200,37 @@ public class BonusSwing extends JFrame {
 		  panel1.add(addButton);
 		
 		
-/* //////////////////////////////////////////////////////////////////////////////// */	
+/* PANEL2 ////////////////////////////////////////////////////////////////////////////// */	
 		panel2 = new JPanel();
 		
 		panel2 = new JPanel(new BorderLayout());
 		panel2.setBackground(new Color(255,255,255));
 		panel2.setLayout(null);
-//		panel2.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
-		panel2.setBorder(BorderFactory.createCompoundBorder(
-							BorderFactory.createTitledBorder("File"),
-							BorderFactory.createEmptyBorder(10,10,10,10)));
-
 
 		labelCycle.setBounds(16, 20, 66, 20);
 		labelCycle.setText("");
 		panel2.add(labelCycle);
+
+		textFile.setText("");
+		textFile.setEditable(false);
+		jScrollPane = new JScrollPane(textFile);
+		jScrollPane.setBounds(16, 40, 288, 535);
+		jScrollPane.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0)); //no border
 		
-		labelAircraft.setBounds(16, 40, 466, 100);
-		labelAircraft.setLocation(16,0);
-		labelAircraft.setText("");
-		panel2.add(labelAircraft);
+		jScrollPane.setViewportBorder(null);
+		panel2.add(jScrollPane);
 
 
-/* //////////////////////////////////////////////////////////////////////////////// */	
+/* PANELBOUTTON //////////////////////////////////////////////////////////////////////// */	
 		panelboutton = new JPanel();
 		  panelboutton = new JPanel(new BorderLayout());
 		  panelboutton.setLayout(null);
-//		  panelboutton.setSize(50, 100);
 		  
-			
-		JCheckBox flag2 = new JCheckBox("generate MD5");
-		flag2.addItemListener(new ItemListen());
-		flag2.setBounds(375, 15, 290, 25);
-		panelboutton.add(flag2);
+		
+		errors = new JLabel("");
+		errors.setForeground(Color.red);
+		errors.setBounds(16, 15, 290, 25);
+		panelboutton.add(errors);
 		  	  
 		  
 		  fin = new JButton ("<html><body><u>F</u>inish</body></html>");
@@ -239,7 +246,7 @@ public class BonusSwing extends JFrame {
 
 		  
 		  
-/* ******************************************************************************* */			
+/* SPLIT ***************************************************************************** */			
 		
 		JSplitPane splitPane1 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,panel,panel1);
 		splitPane1.setDividerLocation(108);
@@ -264,22 +271,24 @@ public class BonusSwing extends JFrame {
 		try {
 			int cycle = Integer.parseInt(textField_0.getText());
 			if (cycle < 1 || cycle > 255) {
-				System.out.println("\n=> Error : cycle < 1 || cycle > 255");
-				fin.setEnabled(false);
+				errors.setText("\n=> Error : cycle < 1 || cycle > 255");
+				if (GUICycle == false)
+					fin.setEnabled(false);
 				GUICycle = false;
 			}
 			else {
-				System.out.println("Debug cycle = " + cycle);
 				labelCycle.setText(textField_0.getText());
 				GUICycle = true;
+				errors.setText("");
 				cycleSet = textField_0.getText();
 				if (GUIAircraft == true)
 					fin.setEnabled(true);
 			}
 		}
 		catch (Exception e) {
-			System.out.println("\n=> Error : cycle not an integer");
-			fin.setEnabled(false);
+			errors.setText("\n=> Error : cycle not an integer");
+			if (GUICycle == false)
+				fin.setEnabled(false);
 			GUICycle = false;
 		}
 	}
@@ -288,17 +297,17 @@ public class BonusSwing extends JFrame {
 	private void verifAircraft() {
 		try {
 			int name = Integer.parseInt(textField_1.getText());
-			int longitute = Integer.parseInt(textField_2.getText());
+			int longitude = Integer.parseInt(textField_2.getText());
 			int latitude = Integer.parseInt(textField_3.getText());
 			int height = Integer.parseInt(textField_4.getText());
 			if (name < 0 || name > 999)
-				System.out.println("\n=> Error : name < 0 || name > 999");
-			if (longitute < 0 || longitute > 999)
-				System.out.println("\n=> Error : longitude < 0 || longitude > 999");
-			if (latitude < 0 || latitude > 999)
-				System.out.println("\n=> Error : latitute < 0 || latitude > 999");
-			if (height < 0 || height > 999)
-				System.out.println("\n=> Error : height < 0 || height > 999");
+				errors.setText("\n=> Error : name < 0 || name > 999");
+			else if (longitude < 0 || longitude > 999)
+				errors.setText("\n=> Error : longitude < 0 || longitude > 999");
+			else if (latitude < 0 || latitude > 999)
+				errors.setText("\n=> Error : latitute < 0 || latitude > 999");
+			else if (height < 0 || height > 999)
+				errors.setText("\n=> Error : height < 0 || height > 999");
 			else {
 				int i = 0;
 				while (i < arrAircraftsGUI.length) {
@@ -307,13 +316,18 @@ public class BonusSwing extends JFrame {
 					i++;
 				}
 				if (i == arrAircraftsGUI.length )
-					System.out.println("\n=> Error : no Type selected");
+					errors.setText("\n=> Error : no Type selected");
+				if (verifName(arrRadioButtonGUI[i].charAt(0) + textField_1.getText()) == false)
+					errors.setText("\n=> Error : Aircraft's name");
 				else {
-					labelAircraft.setText("<html>" + arrRadioButtonGUI[i] + ' '
+					errors.setText("");
+					if (GUIAircraft == true)
+						textFile.append("\n");
+					textFile.append(arrRadioButtonGUI[i] + ' '
 											+ arrRadioButtonGUI[i].charAt(0) + textField_1.getText() + ' '
 											+ textField_2.getText() + ' '
 											+ textField_3.getText() + ' '
-											+ textField_4.getText() + "<br> test nouvelle ligne</html>");
+											+ textField_4.getText());
 					setFile(arrRadioButtonGUI[i], arrRadioButtonGUI[i].charAt(0) + textField_1.getText(), textField_2.getText(),
 							textField_3.getText(), textField_4.getText());
 					GUIAircraft = true;
@@ -323,10 +337,17 @@ public class BonusSwing extends JFrame {
 			}
 		}
 		catch (Exception e) {
-			System.out.println("\n=> Error : values");
+			errors.setText("\n=> Error : values");
 		}
 	}
-		
+	
+	private boolean verifName(String sName) {
+		if (arrAircraftsNames.isEmpty() == true || arrAircraftsNames.contains(sName) == false) {
+			arrAircraftsNames.add(sName);
+			return true;
+		}
+		return false;
+	}
 	
 	private void setFile(String type, String name, String longitude, String latitude, String height) {
 		arrFileAircrafts.add(type + ' '
@@ -338,31 +359,28 @@ public class BonusSwing extends JFrame {
 	
 	private void createFile() throws IOException {
 		Path sim = Paths.get("generate.txt");
-//		Files.write(sim,cycleSet);
+		arrFileAircrafts.add(0, cycleSet);
 		Files.write(sim,arrFileAircrafts);
 		
-		System.out.println(Tools.GREEN + "=> generate.txt created" + Tools.RESET);
+		errors.setText(Tools.GREEN + "=> generate.txt created" + Tools.RESET);
 	}
 	
 		
-		public class StateListener implements ActionListener{
+		private class StateListener implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>A</u>dd</body></html>") == true) {
-					System.out.println("ADD press");
 					verifAircraft();
 				}
 				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>S</u>et</body></html>") == true) {
 					verifGUICycle();
 				}
 				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>C</u>ancel</body></html>") == true) {
-					System.out.println("Cancel press");
 					window.setVisible(false);
 					window.dispose();
 				}
 				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>F</u>inish</body></html>") == true) {
-					System.out.println("Finish press");
 					try {
 						createFile();
 					} catch (IOException e1) {
@@ -373,8 +391,6 @@ public class BonusSwing extends JFrame {
 				}
 				else {
 					int i = 0;
-					System.out.println("source : " + ((AbstractButton) e.getSource()).getText() + 
-							" - state : " + ((AbstractButton) e.getSource()).isSelected());
 					while (i < arrRadioButtonGUI.length) {
 						if (((AbstractButton) e.getSource()).getText().equals(arrRadioButtonGUI[i]) && ((AbstractButton) e.getSource()).isSelected() == true )
 							arrAircraftsGUI[i] = true;
@@ -386,16 +402,6 @@ public class BonusSwing extends JFrame {
 			}
 		
 		}
-		
-		public class ItemListen implements ItemListener{
-
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				System.out.println(e.getStateChange() == ItemEvent.SELECTED
-		                ? "SELECTED" : "DESELECTED");
-			}
-		}
-
 
 	
 }

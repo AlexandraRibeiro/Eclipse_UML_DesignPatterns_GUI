@@ -1,51 +1,9 @@
-Tower says: Baloon#B1(1) registered to weather tower.
-Tower says: Baloon#B2(2) registered to weather tower.
-Tower says: JetPlane#J1(3) registered to weather tower.
-Tower says: Helicopter#H1(4) registered to weather tower.
-Tower says: Drone#D5(5) registered to weather tower.
-Tower says: Helicopter#H2(6) registered to weather tower.
-Tower says: Helicopter#H3(7) registered to weather tower.
-Tower says: Baloon#B3(8) registered to weather tower.
-Tower says: JetPlane#J2(9) registered to weather tower.
-Tower says: Helicopter#H4(10) registered to weather tower.
-Baloon#B1(1):  It's a bit chilly and foggy today, so I think you should wear a coat.
-Baloon#B2(2):  We could see nothing but fog.
-JetPlane#J1(3):  We could see nothing but fog.
-Helicopter#H1(4):  Forgot my umbrella to dance in the rain.
-Drone#D5(5):  Snowing, like a slap in the face.
-Helicopter#H2(6):  We could see nothing but fog.
-Helicopter#H3(7):  I've got sunburn on my head.
-Baloon#B3(8):  We could see nothing but fog.
-JetPlane#J2(9):  I love the sun.
-Helicopter#H4(10):  It's raining today.
-Baloon#B1(1):  Who has turned-on the fog?
-Baloon#B2(2):  We could see nothing but fog.
-JetPlane#J1(3):  I hate the fog!
-Helicopter#H1(4):  Forgot my umbrella to dance in the rain.
-Drone#D5(5):  It's snowing. We're gonna crash.
-Helicopter#H2(6):  What fog, where is my knife to cut it!
-Helicopter#H3(7):  Right time for a nap on the sun.
-Baloon#B3(8):  What fog, where is my knife to cut it!
-JetPlane#J2(9):  Whaou! Need my sun cream.
-Helicopter#H4(10):  It's raining today.
-Baloon#B1(1):  I hate the fog!
-Baloon#B2(2):  What fog, where is my knife to cut it!
-JetPlane#J1(3):  It's a bit chilly and foggy today, so I think you should wear a coat.
-Helicopter#H1(4):  The rain always begins with a single drop.
-Drone#D5(5):  A cold wind blow in.
-Helicopter#H2(6):  What fog, where is my knife to cut it!
-Helicopter#H3(7):  Whaou! Need my sun cream.
-Baloon#B3(8):  It's a bit chilly and foggy today, so I think you should wear a coat.
-JetPlane#J2(9):  I love the sun.
-Helicopter#H4(10):  The rain always begins with a single drop.
-Baloon#B1(1):  What fog, where is my knife to cut it!
-Baloon#B2(2):  What fog, where is my knife to cut it!
-JetPlane#J1(3):  It's a bit chilly and foggy today, so I think you should wear a coat.
-Helicopter#H1(4):  Yahooo! Time for shower, where's my soap?
-Drone#D5(5):  I hate the wind!
-Drone#D5(5) landing.
-Tower says: Drone#D5(5) unregistered from weather tower.
-Helicopter#H3(7):  I've got sunburn on my head.
-Baloon#B3(8):  It's a bit chilly and foggy today, so I think you should wear a coat.
-JetPlane#J2(9):  I love the sun.
-Helicopter#H4(10):  Forgot my umbrella to dance in the rain.
+Tower says: JetPlane#J1(1) registered to weather tower.
+JetPlane#J1(1):  I love the sun.
+JetPlane#J1(1):  I love the sun.
+JetPlane#J1(1):  I've got sunburn on my head.
+JetPlane#J1(1):  Right time for a nap on the sun.
+JetPlane#J1(1):  I've got sunburn on my head.
+JetPlane#J1(1):  I love the sun.
+JetPlane#J1(1):  Sun is shinning, please do not sing.
+JetPlane#J1(1):  Sun is shinning, please do not sing.
