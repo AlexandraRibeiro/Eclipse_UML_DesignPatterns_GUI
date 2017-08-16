@@ -69,7 +69,16 @@ echo "java avaj_launcher.Main scenario.txt -g // creation md5 valide"
 java avaj_launcher.Main scenario.txt -g
 echo
 echo "____________________________________________________________________________"
+echo "java avaj_launcher.Main scenario_MD5.txt // lecture MD5"
+java avaj_launcher.Main scenario_MD5.txt
+echo
+echo "____________________________________________________________________________"
 echo "java avaj_launcher.Main scenario_MD5.txt -g // creation md5 erreur fichier"
 java avaj_launcher.Main scenario_MD5.txt -g
+echo
+echo "____________________________________________________________________________"
+echo "java avaj_launcher.Main -G // appel generator"
+java avaj_launcher.Main -G
+echo
 
 

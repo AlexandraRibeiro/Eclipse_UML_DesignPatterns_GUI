@@ -1,2 +1,6 @@
-8
-JetPlane J1 999 999 100
+200
+Helicopter H4 100 100 75
+Baloon B4 100 100 75
+JetPlane J4 100 100 75
+Rocket R4 100 100 75
+Drone D4 100 100 75

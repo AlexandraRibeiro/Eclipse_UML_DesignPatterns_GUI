@@ -1,9 +1,0 @@
-Tower says: JetPlane#J1(1) registered to weather tower.
-JetPlane#J1(1):  I love the sun.
-JetPlane#J1(1):  I love the sun.
-JetPlane#J1(1):  I've got sunburn on my head.
-JetPlane#J1(1):  Right time for a nap on the sun.
-JetPlane#J1(1):  I've got sunburn on my head.
-JetPlane#J1(1):  I love the sun.
-JetPlane#J1(1):  Sun is shinning, please do not sing.
-JetPlane#J1(1):  Sun is shinning, please do not sing.
