@@ -88,7 +88,6 @@ public class BonusSwing extends JFrame {
 	
 /* PANEL //////////////////////////////////////////////////////////////////////////////// */		
 		JPanel panel = new JPanel();
-		panel = new JPanel(new BorderLayout());
 		panel.setBackground(new Color(153,204,255));
 		panel.setLayout(null);
 				
@@ -99,20 +98,18 @@ public class BonusSwing extends JFrame {
 				
 		textField_0 = new JTextField();
 		textField_0.setToolTipText("max value 255");
-		textField_0.setBounds(120, 30, 46, 22);
+		textField_0.setBounds(135, 30, 46, 22);
 		panel.add(textField_0);
 		
 		
 		 JButton setButton = new JButton ("<html><body><u>S</u>et</body></html>");
-		  setButton.setBounds(45, 70, 90, 25);
+		  setButton.setBounds(55, 70, 90, 25);
 		  setButton.addActionListener(new StateListener());
 		  panel.add(setButton);
 		
 		
 /* PANEL1 ////////////////////////////////////////////////////////////////////////////// */	
 		panel1 = new JPanel();
-	
-		panel1 = new JPanel(new BorderLayout());
 		panel1.setBackground(new Color(204,229,255));
 		panel1.setLayout(null);
 		
@@ -157,13 +154,13 @@ public class BonusSwing extends JFrame {
 	
 
 		
-		JLabel idnum1 = new JLabel("Name :");
-		idnum1.setBounds(16, 230, 66, 20);
+		JLabel idnum1 = new JLabel("Name's number :");
+		idnum1.setBounds(16, 230, 116, 20);
 		panel1.add(idnum1);
 				
 		textField_1 = new JTextField();
 		textField_1.setToolTipText("max value 999");
-		textField_1.setBounds(120, 230, 46, 22);
+		textField_1.setBounds(135, 230, 46, 22);
 		panel1.add(textField_1);
 		
 		JLabel idnum2 = new JLabel("Longitude :");
@@ -172,7 +169,7 @@ public class BonusSwing extends JFrame {
 				
 		textField_2 = new JTextField();
 		textField_2.setToolTipText("max value 999");
-		textField_2.setBounds(120, 280, 46, 22);
+		textField_2.setBounds(135, 280, 46, 22);
 		panel1.add(textField_2);
 		
 		JLabel idnum3 = new JLabel("Latitude :");
@@ -181,7 +178,7 @@ public class BonusSwing extends JFrame {
 				
 		textField_3 = new JTextField();
 		textField_3.setToolTipText("max value 999");
-		textField_3.setBounds(120, 330, 46, 22);
+		textField_3.setBounds(135, 330, 46, 22);
 		panel1.add(textField_3);
 	
 		JLabel idnum4 = new JLabel("Height :");
@@ -190,12 +187,12 @@ public class BonusSwing extends JFrame {
 				
 		textField_4 = new JTextField();
 		textField_4.setToolTipText("max value 999");
-		textField_4.setBounds(120, 380, 46, 22);
+		textField_4.setBounds(135, 380, 46, 22);
 		panel1.add(textField_4);
 		
 		
 		 JButton addButton = new JButton ("<html><body><u>A</u>dd</body></html>");
-		  addButton.setBounds(45, 440, 90, 25);
+		  addButton.setBounds(55, 440, 90, 25);
 		  addButton.addActionListener(new StateListener());
 		  panel1.add(addButton);
 		
@@ -234,13 +231,13 @@ public class BonusSwing extends JFrame {
 		  	  
 		  
 		  fin = new JButton ("<html><body><u>F</u>inish</body></html>");
-		  fin.setBounds(310, 55, 90, 25);
+		  fin.setBounds(310, 45, 90, 25);
 		  fin.setEnabled(false);
 		  fin.addActionListener(new StateListener());
 		  panelboutton.add(fin);
 		  
 		  JButton can = new JButton ("<html><body><u>C</u>ancel</body></html>");
-		  can.setBounds(405, 55, 90, 25);
+		  can.setBounds(405, 45, 90, 25);
 		  can.addActionListener(new StateListener());
 		  panelboutton.add(can);
 
@@ -253,7 +250,7 @@ public class BonusSwing extends JFrame {
 		splitPane1.setOneTouchExpandable(false);
 		  
 		JSplitPane splitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,splitPane1,panel2);
-		splitPane2.setDividerLocation(185);
+		splitPane2.setDividerLocation(200);
 		splitPane2.setOneTouchExpandable(false);
 		
 		JSplitPane splitPane3 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,splitPane2,panelboutton);
@@ -362,7 +359,7 @@ public class BonusSwing extends JFrame {
 		arrFileAircrafts.add(0, cycleSet);
 		Files.write(sim,arrFileAircrafts);
 		
-		errors.setText(Tools.GREEN + "=> generate.txt created" + Tools.RESET);
+		System.out.println(Tools.GREEN + "=> generate.txt created" + Tools.RESET);
 	}
 	
 		

@@ -1,0 +1,407 @@
+package avaj_launcher;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+
+import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.Border;
+
+public class BonusSwing extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private static BonusSwing window;
+	
+	private static final String[] arrRadioButtonGUI = {"JetPlane", "Helicopter", "Baloon", "Rocket", "Drone"};
+	private static final boolean[] arrAircraftsGUI = {false, false, false, false, false};
+	
+	private static String cycleSet = "";
+	private static ArrayList<String> arrFileAircrafts = new ArrayList<String>();
+	public static ArrayList<String> arrAircraftsNames = new ArrayList<String>();
+	
+	private JPanel panel1;
+	private JPanel panel2;
+	private JPanel panelboutton;
+	
+	private JLabel errors;
+	
+	private JButton fin;
+	
+	private ButtonGroup groupe;
+	
+	private JTextField textField_0; //cycle 0->255
+	private JTextField textField_1; //name 0->999
+	private JTextField textField_2; //longitude
+	private JTextField textField_3; //latitude
+	private JTextField textField_4; //height
+	
+	private JLabel labelCycle = new JLabel(); //file cycle
+	private JTextArea textFile = new JTextArea();
+	private JScrollPane jScrollPane;
+	
+	
+	private boolean GUICycle = false;
+	private boolean GUIAircraft = false;
+
+
+	private BonusSwing () {}
+	
+	public static void initWindow() {
+		if (window == null) {
+			window = new BonusSwing();
+			window.init();
+		}
+	}
+	
+	private void init() {
+		this.setTitle("Generator");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.setLayout(new BorderLayout());
+
+
+	
+/* PANEL //////////////////////////////////////////////////////////////////////////////// */		
+		JPanel panel = new JPanel();
+		panel = new JPanel(new BorderLayout());
+		panel.setBackground(new Color(153,204,255));
+		panel.setLayout(null);
+				
+		
+		JLabel idnum0 = new JLabel("Cycle(s) :");
+		idnum0.setBounds(16, 30, 66, 20);
+		panel.add(idnum0);
+				
+		textField_0 = new JTextField();
+		textField_0.setToolTipText("max value 255");
+		textField_0.setBounds(135, 30, 46, 22);
+		panel.add(textField_0);
+		
+		
+		 JButton setButton = new JButton ("<html><body><u>S</u>et</body></html>");
+		  setButton.setBounds(55, 70, 90, 25);
+		  setButton.addActionListener(new StateListener());
+		  panel.add(setButton);
+		
+		
+/* PANEL1 ////////////////////////////////////////////////////////////////////////////// */	
+		panel1 = new JPanel();
+	
+		panel1 = new JPanel();
+		panel1.setBackground(new Color(204,229,255));
+		panel1.setLayout(null);
+		
+				
+		JLabel type = new JLabel("Type :");
+		type.setBounds(16, 30, 66, 20);
+		panel1.add(type);
+		
+		
+		groupe = new ButtonGroup();
+		
+		JRadioButton button1 = new JRadioButton(arrRadioButtonGUI[0]);
+		groupe.add(button1);
+		button1.addActionListener(new StateListener());
+		button1.setBounds(16, 60, 90, 25);
+		panel1.add(button1);
+		
+		JRadioButton button2 = new JRadioButton(arrRadioButtonGUI[1]);
+		groupe.add(button2);
+		button2.addActionListener(new StateListener());
+		button2.setBounds(16, 90, 110, 25);
+		panel1.add(button2);
+		
+		JRadioButton button3 = new JRadioButton(arrRadioButtonGUI[2]);
+		groupe.add(button3);
+		button3.addActionListener(new StateListener());
+		button3.setBounds(16, 120, 100, 25);
+		panel1.add(button3);
+		
+		JRadioButton button4 = new JRadioButton(arrRadioButtonGUI[3]);
+		groupe.add(button4);
+		button4.addActionListener(new StateListener());
+		button4.setBounds(16, 150, 100, 25);
+		panel1.add(button4);
+		
+		JRadioButton button5 = new JRadioButton(arrRadioButtonGUI[4]);
+		groupe.add(button5);
+		button5.addActionListener(new StateListener());
+		button5.setBounds(16, 180, 100, 25);
+		panel1.add(button5);
+		
+	
+
+		
+		JLabel idnum1 = new JLabel("Name's number :");
+		idnum1.setBounds(16, 230, 116, 20);
+		panel1.add(idnum1);
+				
+		textField_1 = new JTextField();
+		textField_1.setToolTipText("max value 999");
+		textField_1.setBounds(135, 230, 46, 22);
+		panel1.add(textField_1);
+		
+		JLabel idnum2 = new JLabel("Longitude :");
+		idnum2.setBounds(16, 280, 76, 20);
+		panel1.add(idnum2);
+				
+		textField_2 = new JTextField();
+		textField_2.setToolTipText("max value 999");
+		textField_2.setBounds(135, 280, 46, 22);
+		panel1.add(textField_2);
+		
+		JLabel idnum3 = new JLabel("Latitude :");
+		idnum3.setBounds(16, 330, 66, 20);
+		panel1.add(idnum3);
+				
+		textField_3 = new JTextField();
+		textField_3.setToolTipText("max value 999");
+		textField_3.setBounds(135, 330, 46, 22);
+		panel1.add(textField_3);
+	
+		JLabel idnum4 = new JLabel("Height :");
+		idnum4.setBounds(16, 380, 66, 20);
+		panel1.add(idnum4);
+				
+		textField_4 = new JTextField();
+		textField_4.setToolTipText("max value 999");
+		textField_4.setBounds(135, 380, 46, 22);
+		panel1.add(textField_4);
+		
+		
+		 JButton addButton = new JButton ("<html><body><u>A</u>dd</body></html>");
+		  addButton.setBounds(55, 440, 90, 25);
+		  addButton.addActionListener(new StateListener());
+		  panel1.add(addButton);
+		
+		
+/* PANEL2 ////////////////////////////////////////////////////////////////////////////// */	
+		panel2 = new JPanel();
+		
+		panel2 = new JPanel(new BorderLayout());
+		panel2.setBackground(new Color(255,255,255));
+		panel2.setLayout(null);
+
+		labelCycle.setBounds(16, 20, 66, 20);
+		labelCycle.setText("");
+		panel2.add(labelCycle);
+
+		textFile.setText("");
+		textFile.setEditable(false);
+		jScrollPane = new JScrollPane(textFile);
+		jScrollPane.setBounds(16, 40, 288, 535);
+		jScrollPane.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0)); //no border
+		
+		jScrollPane.setViewportBorder(null);
+		panel2.add(jScrollPane);
+
+
+/* PANELBOUTTON //////////////////////////////////////////////////////////////////////// */	
+		panelboutton = new JPanel();
+		  panelboutton = new JPanel(new BorderLayout());
+		  panelboutton.setLayout(null);
+		  
+		
+		errors = new JLabel("");
+		errors.setForeground(Color.red);
+		errors.setBounds(16, 15, 290, 25);
+		panelboutton.add(errors);
+		  	  
+		  
+		  fin = new JButton ("<html><body><u>F</u>inish</body></html>");
+		  fin.setBounds(310, 45, 90, 25);
+		  fin.setEnabled(false);
+		  fin.addActionListener(new StateListener());
+		  panelboutton.add(fin);
+		  
+		  JButton can = new JButton ("<html><body><u>C</u>ancel</body></html>");
+		  can.setBounds(405, 45, 90, 25);
+		  can.addActionListener(new StateListener());
+		  panelboutton.add(can);
+
+		  
+		  
+/* SPLIT ***************************************************************************** */			
+		
+		JSplitPane splitPane1 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,panel,panel1);
+		splitPane1.setDividerLocation(108);
+		splitPane1.setOneTouchExpandable(false);
+		  
+		JSplitPane splitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,splitPane1,panel2);
+		splitPane2.setDividerLocation(200);
+		splitPane2.setOneTouchExpandable(false);
+		
+		JSplitPane splitPane3 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,splitPane2,panelboutton);
+		splitPane3.setDividerLocation(600);
+		splitPane3.setOneTouchExpandable(true);
+		
+		this.add(splitPane3);
+		this.setSize(518,720);
+		this.setResizable(false);
+		this.setVisible(true);
+	}		
+	
+	
+	private void verifGUICycle() {
+		try {
+			int cycle = Integer.parseInt(textField_0.getText());
+			if (cycle < 1 || cycle > 255) {
+				errors.setText("\n=> Error : cycle < 1 || cycle > 255");
+				if (GUICycle == false)
+					fin.setEnabled(false);
+				GUICycle = false;
+			}
+			else {
+				labelCycle.setText(textField_0.getText());
+				GUICycle = true;
+				errors.setText("");
+				cycleSet = textField_0.getText();
+				if (GUIAircraft == true)
+					fin.setEnabled(true);
+			}
+		}
+		catch (Exception e) {
+			errors.setText("\n=> Error : cycle not an integer");
+			if (GUICycle == false)
+				fin.setEnabled(false);
+			GUICycle = false;
+		}
+	}
+	
+	
+	private void verifAircraft() {
+		try {
+			int name = Integer.parseInt(textField_1.getText());
+			int longitude = Integer.parseInt(textField_2.getText());
+			int latitude = Integer.parseInt(textField_3.getText());
+			int height = Integer.parseInt(textField_4.getText());
+			if (name < 0 || name > 999)
+				errors.setText("\n=> Error : name < 0 || name > 999");
+			else if (longitude < 0 || longitude > 999)
+				errors.setText("\n=> Error : longitude < 0 || longitude > 999");
+			else if (latitude < 0 || latitude > 999)
+				errors.setText("\n=> Error : latitute < 0 || latitude > 999");
+			else if (height < 0 || height > 999)
+				errors.setText("\n=> Error : height < 0 || height > 999");
+			else {
+				int i = 0;
+				while (i < arrAircraftsGUI.length) {
+					if (arrAircraftsGUI[i] == true)
+						break;
+					i++;
+				}
+				if (i == arrAircraftsGUI.length )
+					errors.setText("\n=> Error : no Type selected");
+				if (verifName(arrRadioButtonGUI[i].charAt(0) + textField_1.getText()) == false)
+					errors.setText("\n=> Error : Aircraft's name");
+				else {
+					errors.setText("");
+					if (GUIAircraft == true)
+						textFile.append("\n");
+					textFile.append(arrRadioButtonGUI[i] + ' '
+											+ arrRadioButtonGUI[i].charAt(0) + textField_1.getText() + ' '
+											+ textField_2.getText() + ' '
+											+ textField_3.getText() + ' '
+											+ textField_4.getText());
+					setFile(arrRadioButtonGUI[i], arrRadioButtonGUI[i].charAt(0) + textField_1.getText(), textField_2.getText(),
+							textField_3.getText(), textField_4.getText());
+					GUIAircraft = true;
+					if (GUICycle == true)
+						fin.setEnabled(true);
+				}
+			}
+		}
+		catch (Exception e) {
+			errors.setText("\n=> Error : values");
+		}
+	}
+	
+	private boolean verifName(String sName) {
+		if (arrAircraftsNames.isEmpty() == true || arrAircraftsNames.contains(sName) == false) {
+			arrAircraftsNames.add(sName);
+			return true;
+		}
+		return false;
+	}
+	
+	private void setFile(String type, String name, String longitude, String latitude, String height) {
+		arrFileAircrafts.add(type + ' '
+							+ name + ' '
+							+ longitude + ' '
+							+ latitude + ' '
+							+ height);
+	}
+	
+	private void createFile() throws IOException {
+		Path sim = Paths.get("generate.txt");
+		arrFileAircrafts.add(0, cycleSet);
+		Files.write(sim,arrFileAircrafts);
+		
+		errors.setText(Tools.GREEN + "=> generate.txt created" + Tools.RESET);
+	}
+	
+		
+		private class StateListener implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>A</u>dd</body></html>") == true) {
+					verifAircraft();
+				}
+				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>S</u>et</body></html>") == true) {
+					verifGUICycle();
+				}
+				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>C</u>ancel</body></html>") == true) {
+					window.setVisible(false);
+					window.dispose();
+				}
+				else if (((AbstractButton) e.getSource()).getText().equals("<html><body><u>F</u>inish</body></html>") == true) {
+					try {
+						createFile();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					window.setVisible(false);
+					window.dispose();
+				}
+				else {
+					int i = 0;
+					while (i < arrRadioButtonGUI.length) {
+						if (((AbstractButton) e.getSource()).getText().equals(arrRadioButtonGUI[i]) && ((AbstractButton) e.getSource()).isSelected() == true )
+							arrAircraftsGUI[i] = true;
+						else
+							arrAircraftsGUI[i] = false;
+						i++;
+					}
+				}
+			}
+		
+		}
+
+	
+}

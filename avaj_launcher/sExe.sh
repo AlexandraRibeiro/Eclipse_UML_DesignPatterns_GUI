@@ -65,6 +65,10 @@ echo "java avaj_launcher.Main scenario-nocycle.tx //fichier inconnu"
 java avaj_launcher.Main scenario-nocycle.tx
 echo
 echo "____________________________________________________________________________"
+echo "java avaj_launcher.Main scenario.txt // ok creation simulation.txt"
+java avaj_launcher.Main scenario.txt
+echo
+echo "____________________________________________________________________________"
 echo "java avaj_launcher.Main scenario.txt -g // creation md5 valide"
 java avaj_launcher.Main scenario.txt -g
 echo

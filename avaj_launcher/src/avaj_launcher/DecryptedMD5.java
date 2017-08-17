@@ -26,6 +26,7 @@ public class DecryptedMD5 {
 			else if (allLines != null && i == 4) {
 				sTmpLine = sTmpLine + crypted.hashNumberToString(999, sCurrentLine);
 				allLines.add(sTmpLine);
+				Tools.nbAircraftsMD5 ++;
 				sTmpLine = null;
 				i = 0;
 			}

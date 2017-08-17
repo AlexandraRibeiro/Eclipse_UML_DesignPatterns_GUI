@@ -1,6 +1,2 @@
-200
-Helicopter H4 100 100 75
-Baloon B4 100 100 75
-JetPlane J4 100 100 75
-Rocket R4 100 100 75
-Drone D4 100 100 75
+7
+Baloon B5 5 2 2

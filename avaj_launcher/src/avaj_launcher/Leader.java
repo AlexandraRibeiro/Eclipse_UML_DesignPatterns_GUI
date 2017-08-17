@@ -50,6 +50,9 @@ public class Leader {
 					md5File = true;
 					DecryptedMD5 decrypted = new DecryptedMD5();
 					arrAllLines = decrypted.generateAllLines(buff);
+					nb_aircraft = Tools.nbAircraftsMD5;
+					nb_cycle = Integer.parseInt(arrAllLines.get(0));
+					arrAllLines.remove(0);
 					break;
 				}
 				else if (nb_aircraft == -1) {
@@ -79,12 +82,17 @@ public class Leader {
 				/* ___________________________________________________________*/
 
 				
+				// Debug MD5 __________________________________________________
 				int i = 0;
-//				while (i < arrAllLines.size()) {
-//					System.out.println(arrAllLines.get(i));
-//					i++;
-//				}
-				i = 0;
+				if (Tools.debugMD5 == true) {
+					System.out.println("cycle = " + nb_cycle);
+					while (i < arrAllLines.size()) {
+						System.out.println(arrAllLines.get(i));
+						i++;
+					}
+					i = 0;
+				}
+				
 				WeatherTower wt = new WeatherTower();
 				
 				// Create Aircraft & register tower _______________________________________________
@@ -107,12 +115,6 @@ public class Leader {
 					i++;
 				}
 				
-				/* Test MD5 -> enlever throw NoSuchAlgorithmException */
-//				String hash1 = "5B86C55E8E0EFEC9A65584CB31D1B324";
-//				String hash2 = crypted.cryptedStr("Baloon B2");
-//				System.out.println("\n** Test MD5 : " + crypted.verifHashs(hash1, hash2));
-				
-				// Generate a file simulation.txt___________________________________________________
 				Path sim = Paths.get("simulation.txt");
 				Files.write(sim, Tools.arrLogs);
 			}
