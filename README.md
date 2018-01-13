@@ -1,6 +1,6 @@
 # avaj_eclipse
 
-Implementation of a simple Java program according to a given class diagram written in UML.
+You will have to implement a minimal aircraft simulation program based on a given UML class diagram. This project will introduce to you the concept of UML class diagrams and object oriented design patterns, all implemented in the Java language.
 
 Objectives :
 - Java
